@@ -5,6 +5,8 @@ export TERM=xterm-256color
 alias ls="ls --color=auto"
 alias mv='mv -i'
 
+xset r rate 250 60
+
 # plugins=(git)
 
 # [[ -s /home/$USER/.autojump/etc/profile.d/autojump.sh ]] && source /home/$USER/.autojump/etc/profile.d/autojump.sh
