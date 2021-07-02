@@ -1,5 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
 " Coding
+"" Template
+Plug 'pianocomposer321/project-templates.nvim', { 'do': ':UpdateRemotePlugins' }
 "" Autocomplete
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
