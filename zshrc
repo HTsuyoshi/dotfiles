@@ -1,8 +1,12 @@
-CASE_SENSITIVE="true"
-
 autoload -U colors && colors
 export TERM=xterm-256color
-alias ls="ls --color=auto"
+
+CASE_SENSITIVE="true"
+
+alias c="clear; taskbook"
+alias cl="clear; exa"
+alias cdl="clear; cd "
+alias ls="exa"
 alias mv='mv -i'
 
 xset r rate 250 60
@@ -17,17 +21,17 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 bindkey "\e[3~" delete-char 
 
+SECCOLOR="%F{8}"
+TERCOLOR="%F{white}"
+
 # Vermelhao
-# alias AZZ="PS1='%F{196}%n%F{reset}%F{8}@%F{reset}%m %~> '"
-# alias AZZESP="PS1='%F{196}%n%F{reset}%F{8}@%F{reset}%m > '"
+MAINCOLOR="%F{196}"
 
 # Laranja
-alias AZZ="PS1='%F{202}%n%F{reset}%F{8}@%F{reset}%m %~> '"
-alias AZZESP="PS1='%F{202}%n%F{reset}%F{8}@%F{reset}%m > '"
+# MAINCOLOR="%F{202}"
 
-AZZ
-
-alias WEEB="source /home/doom/.scripts/WEEB.zsh"
+alias AZZESP="PS1='$MAINCOLOR%n%F{reset}%F{8}@%F{reset}%m > '"
+alias WEEB="source $HOME/.scripts/WEEB.zsh"
 
 # TMUX
 
@@ -86,5 +90,5 @@ TRAPINT() {
   return $(( 128 + $1 ))
 }
 
-PROMPT='%F{202}%n%F{reset}%F{8}@%F{reset}%m %~ %(?.%F{white}$THEME_VI_MODE_SYMBOL.%F{202}$THEME_VI_MODE_SYMBOL)%F{reset} '
+PROMPT="$MAINCOLOR%n%F{reset}$SECCOLOR@%F{reset}$TERCOLOR%m%F{reset} %~ %(?.%F{white}$THEME_VI_MODE_SYMBOL.$MAINCOLOR$THEME_VI_MODE_SYMBOL)%F{reset} "
 # PROMPT='$THEME_PROMPT_PREFIX%f%B%F{240}%1~%f%b %(?.%F{green}$THEME_VI_MODE_SYMBOL.%F{red}$THEME_VI_MODE_SYMBOL) '

@@ -1,3 +1,6 @@
+" Dev icons
+" set guifont=DroidSansMono\ Nerd\ Font\ 11
+
 " Airline
 let g:airline_theme='badwolf'
 " let g:airline_powerline_fonts = 1
@@ -24,6 +27,20 @@ set modifiable
 "" Start NERDTree when Vim is started without file arguments.
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+
+"" Nerd Tree git plugin
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'*',
+                \ 'Staged'    :'+',
+                \ 'Untracked' :'U',
+                \ 'Renamed'   :'-',
+                \ 'Unmerged'  :'=',
+                \ 'Deleted'   :'x',
+                \ 'Dirty'     :'D',
+                \ 'Ignored'   :'N',
+                \ 'Clean'     :'Y',
+                \ 'Unknown'   :'?',
+                \ }
 
 
 

@@ -1,20 +1,21 @@
-" Left number
-set number
-set relativenumber
+filetype on
+filetype plugin on
 
-"
-set title
-
-" Dev icons
-set encoding=UTF-8
-
-"
-set linebreak
-
+"" Functionality
 " Identation
 set expandtab
 set tabstop=4
 set shiftwidth=4
+
+"" Customize
+set number
+set relativenumber
+set title
+set linebreak
+set colorcolumn=80
+
+" Dev icons
+set encoding=UTF-8
 
 " Markdown highlight
 let g:markdown_fenced_languages = ['bash=sh', 'javascript', 'js=javascript', 'json=javascript', 'typescript', 'ts=typescript', 'php', 'html', 'css']
