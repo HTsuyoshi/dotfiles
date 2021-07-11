@@ -9,6 +9,11 @@ alias cdl="clear; cd "
 alias ls="exa"
 alias mv='mv -i'
 
+# C-l
+limpartela () { clear; taskbook; }
+zle -N limpartela
+bindkey '^l' limpartela
+
 xset r rate 250 60
 
 # plugins=(git)
