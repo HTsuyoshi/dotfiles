@@ -11,3 +11,12 @@ Install rcm and run:
 ```bash
 rcup
 ```
+
+Cheatsheet (nvim):
+
+python3 file:
+* \ + r: run actual script
+
+cpp file:
+* \ + c: compile actual script
+* \ + r: run actual script

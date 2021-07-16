@@ -9,3 +9,4 @@ source $HOME/.dotfiles/config/nvim/configs/init.vimrc
 source $HOME/.dotfiles/config/nvim/configs/plugins.vimrc
 source $HOME/.dotfiles/config/nvim/configs/general.vimrc
 source $HOME/.dotfiles/config/nvim/configs/keys.vimrc
+source $HOME/.dotfiles/config/nvim/configs/coding.vimrc
