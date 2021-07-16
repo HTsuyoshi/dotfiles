@@ -1,9 +1,5 @@
 #!/bin/sh
 
-# feh --bg-scale /home/azz/Downloads/Ez-Ykh4UUAQgGEA
-# feh --bg-fill /home/azz/Backup/img/1.jpg
-# feh --bg-fill /home/azz/opt/my-graphical-interface/wallpaper/854119.png /home/azz/Backup/img/1.jpg
-
 set_wallpaper() {
 	local folder=~/opt/my-graphical-interface/wallpaper
 	local all='feh --recursive --bg-fill --randomize'

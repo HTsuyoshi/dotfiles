@@ -1,60 +1,30 @@
 autoload -U colors && colors
 export TERM=xterm-256color
-
 CASE_SENSITIVE="true"
-
-alias c="clear; taskbook"
-alias cl="clear; exa"
-alias cdl="clear; cd "
-alias ls="exa"
-alias mv='mv -i'
-
-# C-l
-limpartela () { clear; taskbook; }
-zle -N limpartela
-bindkey '^l' limpartela
-
 xset r rate 250 60
 
-# plugins=(git)
+alias ls="exa"
 
+# plugins=(git)
 # [[ -s /home/$USER/.autojump/etc/profile.d/autojump.sh ]] && source /home/$USER/.autojump/etc/profile.d/autojump.sh
 
-# Bindkey
-
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-bindkey "\e[3~" delete-char 
-
+MAINCOLOR="%F{196}" # vermelho
+# MAINCOLOR="%F{202}" # laranja
 SECCOLOR="%F{8}"
 TERCOLOR="%F{white}"
-
-# Vermelhao
-MAINCOLOR="%F{196}"
-
-# Laranja
-# MAINCOLOR="%F{202}"
 
 alias AZZESP="PS1='$MAINCOLOR%n%F{reset}%F{8}@%F{reset}%m > '"
 alias WEEB="source $HOME/.scripts/WEEB.zsh"
 
 # TMUX
-
 alias tmuxn='tmux new-session -s $$'
 _trap_exit() { tmux kill-session -t $$; }
 trap _trap_exit EXIT
 
 # Flameshot
-
 alias flameshot="flameshot gui"
 
-# Background
-# alias EITS="feh --no-fehbg --bg-scale /home/doom/Imagens/EITS/catacat.png"
-# alias EITSS="feh --no-fehbg --bg-scale /home/doom/Imagens/EITS/catacatmenro.png"
-# alias STIE="/home/doom/.fehbg"
-
 # Vi mode
-
 bindkey -v
 export KEYTIMEOUT=1
 
@@ -95,5 +65,13 @@ TRAPINT() {
   return $(( 128 + $1 ))
 }
 
-PROMPT="$MAINCOLOR%n%F{reset}$SECCOLOR@%F{reset}$TERCOLOR%m%F{reset} %~ %(?.%F{white}$THEME_VI_MODE_SYMBOL.$MAINCOLOR$THEME_VI_MODE_SYMBOL)%F{reset} "
+PROMPT='$MAINCOLOR%n%F{reset}$SECCOLOR@%F{reset}$TERCOLOR%m%F{reset} %~ %(?.$TERCOLOR$THEME_VI_MODE_SYMBOL.$MAINCOLOR$THEME_VI_MODE_SYMBOL)%F{reset} '
 # PROMPT='$THEME_PROMPT_PREFIX%f%B%F{240}%1~%f%b %(?.%F{green}$THEME_VI_MODE_SYMBOL.%F{red}$THEME_VI_MODE_SYMBOL) '
+
+
+# Bindkeys
+
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+bindkey "\e[3~" delete-char 
+bindkey -s '^l' '^Uclear; taskbook;^M'
