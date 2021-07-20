@@ -1,13 +1,13 @@
 filetype on
 filetype plugin on
 
-"" Functionality
-" Identation
+" Functionality
+"" Identation
 set expandtab
 set tabstop=4
 set shiftwidth=4
 
-"" Customize
+" Customize
 set number
 set relativenumber
 set title
@@ -23,9 +23,28 @@ let g:markdown_fenced_languages = ['bash=sh', 'javascript', 'js=javascript', 'js
 " Colors
 colorscheme badwolf
 syntax on
+set termguicolors
 
 "" Make the gutters darker than the background.
 let g:badwolf_darkgutter = 1
 
 "" Turn on CSS properties highlighting
 let g:badwolf_css_props_highlight = 1
+
+" Execute code
+let maplocalleader = "\\"
+augroup exe_code
+    autocmd!
+
+    " execute python code
+    autocmd FileType python nnoremap <buffer> <localleader>r
+                \ :sp <CR> :term python3 %<CR> :startinsert<CR>
+
+    " compile and execute cpp code
+    autocmd FileType cpp nnoremap <buffer> <localleader>c
+                    \ :sp <CR> :term g++ %<CR> :startinsert<CR>
+
+    autocmd FileType cpp nnoremap <buffer> <localleader>r
+                    \ :sp <CR> :term ./a.out :startinsert<CR>
+
+augroup END

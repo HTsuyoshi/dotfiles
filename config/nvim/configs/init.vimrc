@@ -1,10 +1,10 @@
 call plug#begin('~/.config/nvim/plugged')
 " Coding
-"" Template
-Plug 'pianocomposer321/project-templates.nvim', { 'do': ':UpdateRemotePlugins' }
-
 "" Autocomplete
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'nvim-lua/completion-nvim'
+Plug 'neovim/nvim-lspconfig'
+
+Plug 'folke/lsp-colors.nvim'
 
 " Under bar
 Plug 'bling/vim-airline'

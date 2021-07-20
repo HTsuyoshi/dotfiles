@@ -5,15 +5,12 @@
 let g:airline_theme='badwolf'
 " let g:airline_powerline_fonts = 1
 let g:airline_detect_modified=1  
-let g:airline_detect_paste=1
-let g:airline#extensions#tabline#formatted = 'default'
+let g:airline_detect_paste=1 
+let g:airline#extensions#tabline#formatted = 'default' 
 let g:airline#extensions#tabline#enabled = 1
-
 if !exists('g:airline_symbols')
         let g:airline_symbols = {}
 endif
-
-
 
 " NerdTree
 "" Open the existing NERDTree on each new tab.
@@ -42,16 +39,28 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Unknown'   :'?',
                 \ }
 
+" nvim-lspconfig
+lua << EOF
+require'lspconfig'.ccls.setup{}
+require'lspconfig'.pyright.setup{}
 
+local lspconfig = require'lspconfig'
+lspconfig.ccls.setup {
+  init_options = {
+    compilationDatabaseDirectory = "build";
+    index = {
+      threads = 0;
+    };
+    clang = {
+      excludeArgs = { "-frounding-math"} ;
+    };
+  }
+}
+require("lsp-colors").setup({
+  Error = "#db4b4b",
+  Warning = "#e0af68",
+  Information = "#0db9d7",
+  Hint = "#10B981"
+})
+EOF
 
-" Coc (Select autocomplete)
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
