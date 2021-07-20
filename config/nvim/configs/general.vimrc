@@ -42,9 +42,21 @@ augroup exe_code
 
     " compile and execute cpp code
     autocmd FileType cpp nnoremap <buffer> <localleader>c
-                    \ :sp <CR> :term g++ %<CR> :startinsert<CR>
+                \ :sp <CR> :term g++ %<CR> :startinsert<CR>
 
     autocmd FileType cpp nnoremap <buffer> <localleader>r
-                    \ :sp <CR> :term ./a.out :startinsert<CR>
+                \ :sp <CR> :term ./a.out :startinsert<CR>
 
 augroup END
+
+" nvim-lspconfig
+augroup lsp                                                                                       
+    au!                                                                                             
+
+    au FileType python 
+                \ lua require'lspconfig'.pyright.setup{}
+    au FileType cpp 
+                \ lua require'lspconfig'.ccls.setup{}
+    au FileType java 
+                \ lua require('jdtls').start_or_attach({cmd = {'java-lsp.sh'}})
+augroup end

@@ -41,10 +41,6 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 
 " nvim-lspconfig
 lua << EOF
-require'lspconfig'.ccls.setup{}
-require'lspconfig'.pyright.setup{}
-require'lspconfig'.java_language_server.setup{}
-
 local lspconfig = require'lspconfig'
 lspconfig.ccls.setup {
   init_options = {
@@ -57,6 +53,7 @@ lspconfig.ccls.setup {
     };
   }
 }
+
 require("lsp-colors").setup({
   Error = "#db4b4b",
   Warning = "#e0af68",
@@ -100,7 +97,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "pyright", "ccls" }
+local servers = { "pyright", "ccls", "jdtls" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -168,5 +165,5 @@ vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-EOF
 
+EOF
