@@ -7,13 +7,17 @@
 # Dependencies: NetworkManager, NetworkManager-openvpn (for OpenVPN connections)
 
 dwm_vpn () {
-    VPN=$(nmcli -a | grep '10.2.16.237' | cut -c 8-18)
+    THM=$(nmcli -a | grep '10.2.16.237' | cut -c 8-18)
+    HTB=$(nmcli -a | grep '10.10.15.7' | cut -c 8-17 | uniq)
 
     printf "%s" "$SEP1"
-    if [ "$VPN" = "10.2.16.237" ]; then
-            printf " THM %s" "$VPN" 
-        else
-            printf " %s" "No VPN"
+    if [ "$THM" = "10.2.16.237" ]; then
+                printf " 說 THM %s" "$THM " 
+        else if [ "$HTB" = "10.10.15.7" ]; then
+                printf " 說 HTB %s" "$HTB " 
+            else
+            printf " %s " "No VPN"
+        fi
     fi
 }
 

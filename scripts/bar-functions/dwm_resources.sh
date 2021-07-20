@@ -21,9 +21,9 @@ dwm_resources () {
 	STOTOT=$(echo $df_output | awk '{print $2}')
 	printf "%s" "$SEP1"
 	if [ "$IDENTIFIER" = "unicode" ]; then
-		printf " %s/%s |  %s/%s" "$MEMUSED" "$MEMTOT" "$STOUSED" "$STOTOT" 
+		printf "  %s/%s |  %s/%s " "$MEMUSED" "$MEMTOT" "$STOUSED" "$STOTOT" 
 	else
-		printf "STA |  MEM %s/%s | STO %s/%s" "$MEMUSED" "$MEMTOT" "$STOUSED" "$STOTOT"
+		printf " STA |  MEM %s/%s | STO %s/%s " "$MEMUSED" "$MEMTOT" "$STOUSED" "$STOTOT"
 	fi
 }
 
