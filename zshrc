@@ -1,3 +1,5 @@
+KEEPASSXC="$HOME/senhas.kdbx"
+
 autoload -U colors && colors
 export TERM=xterm-256color
 CASE_SENSITIVE="true"
@@ -5,16 +7,8 @@ xset r rate 250 60
 
 alias ls="exa"
 
-# plugins=(git)
-# [[ -s /home/$USER/.autojump/etc/profile.d/autojump.sh ]] && source /home/$USER/.autojump/etc/profile.d/autojump.sh
-
-MAINCOLOR="%F{196}" # vermelho
-# MAINCOLOR="%F{202}" # laranja
-SECCOLOR="%F{8}"
-TERCOLOR="%F{white}"
-
-alias AZZESP="PS1='$MAINCOLOR%n%F{reset}%F{8}@%F{reset}%m > '"
-alias WEEB="source $HOME/.scripts/WEEB.zsh"
+# Spotify
+alias spotify-tui="spt"
 
 # TMUX
 alias tmuxn='tmux new-session -s $$'
@@ -24,6 +18,15 @@ trap _trap_exit EXIT
 # Flameshot
 alias flameshot="flameshot gui"
 
+# PS1
+MAINCOLOR="%F{196}" # vermelho
+# MAINCOLOR="%F{202}" # laranja
+SECCOLOR="%F{8}" # cinza
+TERCOLOR="%F{white}" # branco
+
+alias WEEB="source $HOME/.scripts/WEEB.zsh"
+alias AZZESP="PS1='$MAINCOLOR%n%F{reset}%F{8}@%F{reset}%m > '"
+
 # Vi mode
 bindkey -v
 export KEYTIMEOUT=1
@@ -31,7 +34,7 @@ export KEYTIMEOUT=1
 ## Init
 setopt PROMPT_SUBST
 
-## Options
+## Option
 THEME_PROMPT_PREFIX=${THEME_PROMPT_PREFIX:-''}
 THEME_VI_INS_MODE_SYMBOL=${THEME_VI_INS_MODE_SYMBOL:-'λ'}
 THEME_VI_CMD_MODE_SYMBOL=${THEME_VI_CMD_MODE_SYMBOL:-'ᐅ'}
