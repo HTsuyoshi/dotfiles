@@ -5,6 +5,7 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'neovim/nvim-lspconfig'
 
 Plug 'folke/lsp-colors.nvim'
+Plug 'hrsh7th/nvim-compe'
 
 " Under bar
 Plug 'bling/vim-airline'
