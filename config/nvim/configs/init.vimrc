@@ -7,8 +7,6 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'folke/lsp-colors.nvim'
 Plug 'hrsh7th/nvim-compe'
 
-Plug 'mfussenegger/nvim-jdtls'
-
 " Under bar
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
