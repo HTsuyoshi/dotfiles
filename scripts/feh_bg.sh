@@ -9,14 +9,14 @@ set_wallpaper() {
 		$all $folder
 	else
 		case $1 in 
-			0) $local $folder/eits;;
-			1) $local $folder/Anastasia;;
-			2) $local $folder/jeanne;;
-			3) $local $folder/Red;;
-			4) $local $folder/misc;;
-			5) $all $folder/games;;
-			6) $local $folder/games/rpgmaker;;
-			7) $local $folder/games/rpgmaker/inGame;;
+			eits) $local $folder/eits;;
+			anastasia) $local $folder/Anastasia;;
+			jeanne) $local $folder/jeanne;;
+			red) $local $folder/Red;;
+			misc) $local $folder/misc;;
+			games) $all $folder/games;;
+			rpgmaker) $local $folder/games/rpgmaker;;
+			rpgmaker1) $local $folder/games/rpgmaker/inGame;;
 			yes) $all $folder/yes;;
 			astolfo) $all $folder/astolfo;;
 			*) $all $folder;;
