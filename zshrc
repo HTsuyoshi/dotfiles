@@ -25,6 +25,7 @@ SECCOLOR="%F{8}" # cinza
 TERCOLOR="%F{white}" # branco
 
 alias WEEB="source $HOME/.scripts/WEEB.zsh"
+alias FURQUIM="source $HOME/.scripts/FURQUIM.zsh"
 alias AZZESP="PS1='$MAINCOLOR%n%F{reset}%F{8}@%F{reset}%m > '"
 
 # Vi mode
