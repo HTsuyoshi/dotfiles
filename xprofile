@@ -4,11 +4,12 @@ export AWT_TOOLKIT=MToolkit
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Wallpaper
-~/.scripts/feh_bg.sh rpgmaker
+#~/.scripts/feh_bg.sh rpgmaker
 
 # Animated Wallpaper
 #xgifwallpaper ~/opt/my-graphical-interface/animated_wallpaper/tokyo_revengers_end_1.gif
 #xrootgif ~/opt/my-graphical-interface/animated_wallpaper/tokyo_revengers_end_1.gif
+~/.scripts/animated_wallpaper.sh &
 
 # DWM status
 ~/.scripts/dwm_bar.sh &
