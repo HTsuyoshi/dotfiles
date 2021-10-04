@@ -1,16 +1,13 @@
 # dotfiles
 
-* vim dependencies:
+* stow
 
-1. python3
-2. pynvim
-3. binaryornot
-* rcm
+Install stow and run:
 
-Install rcm and run:
 ```bash
-rcup
+stow *
 ```
+
 ## Configs
 
 * nvim
