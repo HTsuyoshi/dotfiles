@@ -5,7 +5,7 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
 endif
 
-source $HOME/.dotfiles/config/nvim/configs/init.vimrc
-source $HOME/.dotfiles/config/nvim/configs/plugins.vimrc
-source $HOME/.dotfiles/config/nvim/configs/general.vimrc
-source $HOME/.dotfiles/config/nvim/configs/keys.vimrc
+source $HOME/.config/nvim/configs/init.vimrc
+source $HOME/.config/nvim/configs/plugins.vimrc
+source $HOME/.config/nvim/configs/general.vimrc
+source $HOME/.config/nvim/configs/keys.vimrc
