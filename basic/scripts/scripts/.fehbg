@@ -1,8 +1,0 @@
-#!/bin/sh
-# feh --no-fehbg --bg-scale '/home/azurai/backup/kkkkkk/Imagens/JEANNE/wp6667601-jeanne-darc-alter-summer-wallpapers.jpg'
-# feh --no-fehbg --bg-scale '/home/azurai/backup/kkkkkk/Imagens/JEANNE/wp6667581-jeanne-darc-alter-summer-wallpapers.jpg'
-# feh --no-fehbg --bg-scale '/home/azurai/Repo/dwm/wallpaper/837522.jpg'
-# feh --no-fehbg --bg-scale '/home/azurai/backup/kkkkkk/Imagens/anime-beautiful-girl-glasses-fantasy-uhdpaper.com-hd-194.jpg'
-# feh --no-fehbg --bg-scale '/home/azurai/backup/kkkkkk/Imagens/JEANNE/wp6667703-jeanne-darc-alter-summer-wallpapers.jpg'
-# feh --no-fehbg --bg-scale '/home/azurai/Repo/dwm/wallpaper/alter/wp4171266-joan-of-arc-wallpapers.jpg'
-feh --no-fehbg --bg-scale '/home/azurai/Repo/my-graphical-interface/wallpaper/eits/catacat.png'
