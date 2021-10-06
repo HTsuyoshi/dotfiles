@@ -5,17 +5,20 @@ function basic_install() {
     mkdir -p ~/.config/nvim/
     mkdir -p ~/.scripts/bar-functions
 
+    local stow_args='-nv'
+
     # Stow
     cd basic
 
+
     echo "Stow home package"
-    stow -t ~ -nv home
+    stow -t ~ $stow_args home
 
     echo "Stow .config package"
-    stow -t ~/.config -nv config
+    stow -t ~/.config $stow_args config
 
     echo "Stow .scripts package"
-    stow -t ~/.scripts -nv scripts
+    stow -t ~/.scripts $stow_args scripts
 
     cd ..
 }
@@ -24,11 +27,13 @@ function full_install() {
     # Create folders
     mkdir -p ~/.config/{qutebrowser, spotify-tui}/
 
+    local stow_args='-nv'
+
     # Stow
     cd full
 
     echo "Stow .config package"
-    stow -t ~/.config -nv config
+    stow -t ~/.config $stow_args config
 
     cd ..
 }

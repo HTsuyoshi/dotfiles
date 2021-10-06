@@ -26,6 +26,7 @@ $./install.sh full
 ## Cheatsheet
 
 (inside) nvim:
+
 python3 file:
 * \ + r: run actual script
 
