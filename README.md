@@ -5,21 +5,23 @@
 Install stow and run:
 
 ```bash
-stow *
+$./install.sh basic
+$./install.sh full
 ```
+## Basic
 
-## Configs
+#### Configs
 
 * nvim
-* qutebrowser
-* spotify-tui
 
-## Scripts
+#### Scripts
 
 * bad apple
 * change background
+* animated background
 * dwm bar
-* WEEB
+* WEEB.zsh
+* FURQUIM.zsh
 
 ## Cheatsheet
 
@@ -31,6 +33,9 @@ cpp file:
 * \ + c: compile actual script
 * \ + r: run actual script
 
-(my dwm) BAD APPLE:
-* ModKey + A: Spawn a shell running bad apple
+## Full
 
+#### Configs
+
+* qutebrowser
+* spotify-tui
