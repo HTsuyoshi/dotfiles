@@ -1,3 +1,5 @@
+#!/bin/bash
+
 function animated_wallpapers() {
     pkill mpv
 
