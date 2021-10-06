@@ -1,7 +1,4 @@
 # dotfiles
-
-* stow
-
 Install stow and run:
 
 ```bash
