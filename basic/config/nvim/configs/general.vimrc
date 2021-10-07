@@ -6,6 +6,10 @@ filetype plugin on
 set expandtab
 set tabstop=4
 set shiftwidth=4
+set list
+set showbreak=↪\ 
+set listchars=tab:→\ ,nbsp:␣,trail:•,extends:⟩,precedes:⟨ ",eol:↲
+
 
 " Customize
 set number
