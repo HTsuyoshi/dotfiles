@@ -4,6 +4,9 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'nvim-lua/completion-nvim'
 Plug 'neovim/nvim-lspconfig'
 
+" Syntax Highlighting
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 Plug 'folke/lsp-colors.nvim'
 Plug 'hrsh7th/nvim-compe'
 
@@ -18,4 +21,5 @@ Plug 'preservim/nerdtree' |
 
 " Smooth
 Plug 'yuttie/comfortable-motion.vim'
+
 call plug#end()

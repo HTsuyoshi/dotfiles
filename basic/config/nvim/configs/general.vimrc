@@ -1,28 +1,9 @@
+" Identify files
 filetype on
 filetype plugin on
 
-" Functionality
-"" Identation
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set list
-set showbreak=↪\ 
-set listchars=tab:→\ ,nbsp:␣,trail:•,extends:⟩,precedes:⟨ ",eol:↲
-
-
-" Customize
-set number
-set relativenumber
-set title
-set linebreak
-set colorcolumn=80
-
-" Dev icons
-set encoding=UTF-8
-
-" Markdown highlight
-let g:markdown_fenced_languages = ['bash=sh', 'javascript', 'js=javascript', 'json=javascript', 'typescript', 'ts=typescript', 'php', 'html', 'css']
+" Highlight to .sage files
+au BufRead,BufNewFile *.sage setfiletype python
 
 " Colors
 colorscheme badwolf
@@ -34,6 +15,22 @@ let g:badwolf_darkgutter = 1
 
 "" Turn on CSS properties highlighting
 let g:badwolf_css_props_highlight = 1
+
+" Functionality
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set list
+set number
+set relativenumber
+set title
+set linebreak
+set colorcolumn=80
+set showbreak=↪\ 
+set listchars=tab:→\ ,nbsp:␣,trail:•,extends:⟩,precedes:⟨ ",eol:↲
+
+" Markdown highlight
+let g:markdown_fenced_languages = ['bash=sh', 'javascript', 'js=javascript', 'json=javascript', 'typescript', 'ts=typescript', 'php', 'html', 'css']
 
 " Execute code
 let maplocalleader = "\\"
@@ -54,8 +51,8 @@ augroup exe_code
 augroup END
 
 " nvim-lspconfig
-augroup lsp                                                                                       
-    au!                                                                                             
+augroup lsp
+    au!
 
     au FileType python 
                 \ lua require'lspconfig'.pyright.setup{}
@@ -64,3 +61,5 @@ augroup lsp
     au FileType java 
                 \ lua require('jdtls').start_or_attach({cmd = {'java-lsp.sh'}})
 augroup end
+
+lua require('config')
