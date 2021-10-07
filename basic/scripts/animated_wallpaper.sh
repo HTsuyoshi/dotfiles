@@ -7,7 +7,7 @@ function animated_wallpapers() {
     xwinwrap_args="-ni -b -nf -ov"
     mpv_args="-wid WID --loop --no-audio --no-resume-playback --panscan=1.0"
 
-    folder="$HOME/opt/animated_wallpapers/perfect"
+    folder="$HOME/opt/animated_wallpapers/perfect/"
     random_1=$(ls $folder |sort -R |tail -n 1)
     random_2=$(ls $folder |sort -R |tail -n 1)
 
