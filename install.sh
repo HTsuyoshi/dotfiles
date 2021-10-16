@@ -1,6 +1,21 @@
 #!/bin/sh
 
+function remove_home() {
+    local ListRemove=(
+        ".xinitrc"
+        ".zshrc"
+        ".xprofile"
+    )
+
+    for file in "${ListRemove[@]}";
+    do
+        rm $HOME/$file
+    done
+}
+
 function basic_install() {
+    remove_home
+
     # Create folders
     mkdir -p ~/.config/nvim/
     mkdir -p ~/.scripts/bar-functions
@@ -24,7 +39,8 @@ function basic_install() {
 
 function full_install() {
     # Create folders
-    mkdir -p ~/.config/{qutebrowser, spotify-tui}/
+    mkdir -p ~/.config/qutebrowser
+    mkdir -p ~/.config/spotify-tui/
 
     local stow_args='-v'
 
@@ -37,13 +53,15 @@ function full_install() {
     cd ..
 }
 
-case $1 in 
+case $1 in
     basic)
         basic_install
         ;;
+
     full)
         full_install
         ;;
+
     *)
         echo 'Must provide an argument'
         echo 'For a basic install'
