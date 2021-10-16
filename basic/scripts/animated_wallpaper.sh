@@ -6,7 +6,6 @@ function animated_wallpapers() {
     local wallpaper="perfect"
     [[ ! -z "$1" ]] && wallpaper="$1"
 
-    #xwinwrap_args="-ni -b -nf -fs" # 1 screen
     local xwinwrap_args="-ni -b -nf -ov -d"
     local mpv_args="-wid WID --loop --no-audio --no-resume-playback --panscan=1.0"
 
@@ -21,6 +20,22 @@ function animated_wallpapers() {
 
     nice -n 15 xwinwrap -g $screen_1 $xwinwrap_args -- mpv $mpv_args $folder$random_1 &
     nice -n 15 xwinwrap -g $screen_2 $xwinwrap_args -- mpv $scale $align $mpv_args $folder$random_2 & 
+}
+
+function animated_wallpaper_one_screen() {
+    pkill mpv 2> /dev/null
+
+    local wallpaper="perfect"
+    [[ ! -z "$1" ]] && wallpaper="$1"
+
+    xwinwrap_args="-ni -b -nf -fs -ov -d" # 1 screen
+
+    local folder="$HOME/opt/animated_wallpapers/$wallpaper/"
+    local random_1=$(ls $folder |sort -R |tail -n 1)
+    local screen_1="1920x1080"
+    local mpv_args="-wid WID --loop --no-audio --no-resume-playback --panscan=1.0"
+
+    nice -n 15 xwinwrap -g $screen_1 $xwinwrap_args -- mpv $mpv_args $folder$random_1 &
 }
 
 until $(echo xwininfo -root) | grep "IsViewable" > /dev/null; do :; done
