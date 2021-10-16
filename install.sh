@@ -19,6 +19,7 @@ function basic_install() {
     # Create folders
     mkdir -p ~/.config/nvim/
     mkdir -p ~/.scripts/bar-functions
+    mkdir -p ~/opt/crt_profiles
 
     local stow_args='-v'
 
@@ -33,6 +34,9 @@ function basic_install() {
 
     echo "Stow .scripts package"
     stow -t ~/.scripts $stow_args scripts
+
+    echo "Stow opt package"
+    stow -t ~/opt $stow_args opt
 
     cd ..
 }
