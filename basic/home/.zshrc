@@ -1,32 +1,40 @@
-KEEPASSXC="$HOME/senhas.kdbx"
-
 autoload -U colors && colors
 export TERM=xterm-256color
 CASE_SENSITIVE="true"
+
+# Cursor speed
 xset r rate 250 60
 
+# Set default
+export EDITOR='/bin/nvim'
+
+# Aliases
 alias ls="exa"
-
-# Spotify
 alias spotify-tui="spt"
+alias WEEB="source $HOME/.scripts/WEEB.zsh"
+alias FURQUIM="source $HOME/.scripts/FURQUIM.zsh"
+alias AZZESP="PS1='$MAINCOLOR%n%F{reset}%F{8}@%F{reset}%m > '"
 
-# TMUX
+## TMUX
 alias tmuxn='tmux new-session -s $$'
 _trap_exit() { tmux kill-session -t $$; }
 trap _trap_exit EXIT
 
-# Flameshot
+## Flameshot
 alias flameshot="flameshot gui"
+
+# Bindkeys
+
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+bindkey "\e[3~" delete-char 
+bindkey -s '^l' '^Uclear; taskbook;^M'
 
 # PS1
 MAINCOLOR="%F{196}" # vermelho
 # MAINCOLOR="%F{202}" # laranja
 SECCOLOR="%F{8}" # cinza
 TERCOLOR="%F{white}" # branco
-
-alias WEEB="source $HOME/.scripts/WEEB.zsh"
-alias FURQUIM="source $HOME/.scripts/FURQUIM.zsh"
-alias AZZESP="PS1='$MAINCOLOR%n%F{reset}%F{8}@%F{reset}%m > '"
 
 # Vi mode
 bindkey -v
@@ -70,12 +78,3 @@ TRAPINT() {
 }
 
 PROMPT='$MAINCOLOR%n%F{reset}$SECCOLOR@%F{reset}$TERCOLOR%m%F{reset} %~ %(?.$TERCOLOR$THEME_VI_MODE_SYMBOL.$MAINCOLOR$THEME_VI_MODE_SYMBOL)%F{reset} '
-# PROMPT='$THEME_PROMPT_PREFIX%f%B%F{240}%1~%f%b %(?.%F{green}$THEME_VI_MODE_SYMBOL.%F{red}$THEME_VI_MODE_SYMBOL) '
-
-
-# Bindkeys
-
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-bindkey "\e[3~" delete-char 
-bindkey -s '^l' '^Uclear; taskbook;^M'

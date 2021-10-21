@@ -1,18 +1,28 @@
-" Dev icons
+""" UltiSnips """
+
+let g:UltiSnipsEditSplit = 'vertical'
+let g:UltiSnipsSnippetsDir = '.config/nvim/UltiSnips'
+
+let g:UltiSnipsExpandTrigger="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+""" Dev icons """
 " set guifont=DroidSansMono\ Nerd\ Font\ 11
 
-" Airline
+"""  Airline """
 let g:airline_theme='badwolf'
 " let g:airline_powerline_fonts = 1
-let g:airline_detect_modified=1  
-let g:airline_detect_paste=1 
-let g:airline#extensions#tabline#formatted = 'default' 
+let g:airline_detect_modified=1
+let g:airline_detect_paste=1
+let g:airline#extensions#tabline#formatted = 'default'
 let g:airline#extensions#tabline#enabled = 1
 if !exists('g:airline_symbols')
         let g:airline_symbols = {}
 endif
 
-" NerdTree
+""" NerdTree """
+
 "" Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * silent NERDTreeMirror
 
@@ -39,7 +49,8 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Unknown'   :'?',
                 \ }
 
-" nvim-lspconfig
+""" nvim-lspconfig """
+
 lua << EOF
 local lspconfig = require'lspconfig'
 lspconfig.ccls.setup {
