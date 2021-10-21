@@ -1,9 +1,13 @@
 # dotfiles
-Install stow and run:
+## Requirements
+
+* stow
+
+## Usage
 
 ```bash
-$./install.sh basic
-$./install.sh full
+$ ./install.sh basic
+$ ./install.sh full
 ```
 ## Basic
 
@@ -22,14 +26,14 @@ $./install.sh full
 
 ## Cheatsheet
 
-(inside) nvim:
+nvim:
 
 python3 file:
-* \ + r: run actual script
+* \ + r: run current script
 
 cpp file:
-* \ + c: compile actual script
-* \ + r: run actual script
+* \ + c: compile current script
+* \ + r: run current script
 
 ## Full
 
@@ -37,3 +41,4 @@ cpp file:
 
 * qutebrowser
 * spotify-tui
+* cool-retro-term
