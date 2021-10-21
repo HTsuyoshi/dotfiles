@@ -18,6 +18,7 @@ function basic_install() {
 
     # Create folders
     mkdir -p ~/.config/nvim/
+    mkdir -p ~/.config/rofi/
     mkdir -p ~/.scripts/bar-functions
     mkdir -p ~/opt/crt_profiles
 

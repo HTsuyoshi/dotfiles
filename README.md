@@ -14,6 +14,7 @@ $ ./install.sh full
 #### Configs
 
 * nvim
+* rofi
 
 #### Scripts
 
