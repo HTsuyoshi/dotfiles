@@ -15,6 +15,8 @@ $ ./install.sh full
 
 * nvim
 * rofi
+* dunst
+* eww (incoming)
 
 #### Scripts
 

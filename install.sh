@@ -18,9 +18,11 @@ function basic_install() {
 
     # Create folders
     mkdir -p ~/.config/nvim/
+    mkdir -p ~/.config/dunst/
     mkdir -p ~/.config/rofi/
-    mkdir -p ~/.scripts/bar-functions
-    mkdir -p ~/opt/crt_profiles
+    mkdir -p ~/.config/eww/
+    mkdir -p ~/.scripts/bar-functions/
+    mkdir -p ~/opt/crt_profiles/
 
     local stow_args='-v'
 
@@ -44,7 +46,7 @@ function basic_install() {
 
 function full_install() {
     # Create folders
-    mkdir -p ~/.config/qutebrowser
+    mkdir -p ~/.config/qutebrowser/
     mkdir -p ~/.config/spotify-tui/
 
     local stow_args='-v'
