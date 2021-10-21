@@ -28,6 +28,7 @@ set linebreak
 set colorcolumn=80
 set showbreak=↪\ 
 set listchars=tab:→\ ,nbsp:␣,trail:•,extends:⟩,precedes:⟨ ",eol:↲
+set inccommand=split
 
 " Markdown highlight
 let g:markdown_fenced_languages = ['bash=sh', 'javascript', 'js=javascript', 'json=javascript', 'typescript', 'ts=typescript', 'php', 'html', 'css']
@@ -45,9 +46,7 @@ augroup exe_code
     autocmd FileType cpp nnoremap <buffer> <localleader>c
                 \ :sp <CR> :term g++ %<CR> :startinsert<CR>
 
-    autocmd FileType cpp nnoremap <buffer> <localleader>r
-                \ :sp <CR> :term ./a.out :startinsert<CR>
-
+    autocmd FileType cpp nnoremap <buffer> <localleader>r \ :sp <CR> :term ./a.out :startinsert<CR>
 augroup END
 
 " nvim-lspconfig
