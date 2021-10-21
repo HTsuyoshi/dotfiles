@@ -26,16 +26,16 @@ function basic_install() {
     # Stow
     cd basic
 
-    echo "Stow home package"
+    echo "----- Stow home package -----"
     stow -t ~ $stow_args home
 
-    echo "Stow .config package"
+    echo "----- Stow .config package -----"
     stow -t ~/.config $stow_args config
 
-    echo "Stow .scripts package"
+    echo "----- Stow .scripts package -----"
     stow -t ~/.scripts $stow_args scripts
 
-    echo "Stow opt package"
+    echo "----- Stow opt package -----"
     stow -t ~/opt $stow_args opt
 
     cd ..
