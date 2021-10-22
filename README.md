@@ -13,24 +13,24 @@ $ ./install.sh full
 
 #### Configs
 
-* nvim
-* rofi
-* dunst
-* eww (incoming)
-* htop
+* `nvim`: My plugins and keybindings
+* `rofi`: squared-material-red (modified to orange)
+* `dunst`: Pink border
+* `eww`: (incoming)
+* `htop`: uptime, mem, swap, cpu (1-4), tasks, network, hostname, battery, system and PSI
 
 #### Scripts
 
-* bad apple
-* change background
-* animated background
-* dwm bar
-* WEEB.zsh
-* FURQUIM.zsh
+* `bad apple`: Run bad apple in ascii art (needs the video.txt file)
+* `change background`: Change wallpaper to any wallpaper in `~/opt/wallpapers`
+* `animated background`: Change wallpaper to any wallpaper in `~/opt/animated_wallpapers`
+* `dwm bar`: Set RAM usage, Hard Drive usage, VPN, Date and Time
+* `WEEB.zsh`: Set waifus in your PS1
+* `FURQUIM.zsh`: Set Furquim in your PS1
 
 ## Cheatsheet
 
-nvim:
+#### nvim:
 
 python3 file:
 * `\ + r`: run current script
@@ -43,6 +43,6 @@ cpp file:
 
 #### Configs
 
-* qutebrowser
-* spotify-tui
-* cool-retro-term
+* `qutebrowser`: Set theme
+* `spotify-tui`:
+* `cool-retro-term`: Set font and effects
