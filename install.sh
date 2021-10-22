@@ -13,29 +13,58 @@ function remove_home() {
     done
 }
 
+function create_folders() {
+    local mkdir_args='-vp'
+
+    local ConfigFolders=(
+        "nvim"
+        "dunst"
+        "rofi"
+        "eww"
+        "htop"
+    )
+
+    for folder in "${ConfigFolders[@]}";
+    do
+        mkdir $mkdir_args ~/.config/$folder
+    done
+
+    local Scripts=(
+        "bar-functions"
+    )
+
+    for folder in "${Scripts[@]}";
+    do
+        mkdir $mkdir_args ~/.scripts/$folder
+    done
+
+    local Opt=(
+        "crt_profiles"
+    )
+
+    for folder in "${Opt[@]}";
+    do
+        mkdir $mkdir_args ~/opt/$folder
+    done
+}
+
 function basic_install() {
     remove_home
 
-    # Create folders
-    mkdir -p ~/.config/nvim/
-    mkdir -p ~/.config/dunst/
-    mkdir -p ~/.config/rofi/
-    mkdir -p ~/.config/eww/
-    mkdir -p ~/.scripts/bar-functions/
-    mkdir -p ~/opt/crt_profiles/
+    create_folders
 
-    local stow_args='-v'
+    cd basic
 
     # Stow
-    cd basic
+    local stow_args='-v'
 
     echo "----- Stow home package -----"
     stow -t ~ $stow_args home
 
-    echo "----- Stow .config package -----"
+    echo "----- Stow config package -----"
     stow -t ~/.config $stow_args config
 
-    echo "----- Stow .scripts package -----"
+    echo "----- Stow scripts package -----"
     stow -t ~/.scripts $stow_args scripts
 
     echo "----- Stow opt package -----"
@@ -44,15 +73,27 @@ function basic_install() {
     cd ..
 }
 
-function full_install() {
-    # Create folders
-    mkdir -p ~/.config/qutebrowser/
-    mkdir -p ~/.config/spotify-tui/
+function create_folders_full() {
+    local mkdir_args='-vp'
 
-    local stow_args='-v'
+    local ConfigFolders=(
+        "qutebrowser"
+        "spotify-tui"
+    )
+
+    for folder in "${ConfigFolders[@]}";
+    do
+        mkdir $mkdir_args ~/.config/$folder
+    done
+}
+
+function full_install() {
+    create_folders_full
+
+    cd full
 
     # Stow
-    cd full
+    local stow_args='-v'
 
     echo "Stow .config package"
     stow -t ~/.config $stow_args config
@@ -71,9 +112,12 @@ case $1 in
 
     *)
         echo 'Must provide an argument'
-        echo 'For a basic install'
+        echo ''
+        echo 'For a basic install:'
         echo '    $install.sh basic'
-        echo 'For a full install'
+        echo ''
+        echo 'For a full install:'
         echo '    $install.sh full'
+        echo ''
         ;;
 esac

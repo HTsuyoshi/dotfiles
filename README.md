@@ -17,6 +17,7 @@ $ ./install.sh full
 * rofi
 * dunst
 * eww (incoming)
+* htop
 
 #### Scripts
 
