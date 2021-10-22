@@ -3,8 +3,7 @@
 function animated_wallpapers() {
     pkill mpv 2> /dev/null
 
-    local wallpaper="perfect"
-    [[ ! -z "$1" ]] && wallpaper="$1"
+    wallpaper="$1"
 
     local xwinwrap_args="-ni -b -nf -ov -d"
     local mpv_args="-wid WID --loop --no-audio --no-resume-playback --panscan=1.0"
@@ -38,5 +37,31 @@ function animated_wallpaper_one_screen() {
     nice -n 15 xwinwrap -g $screen_1 $xwinwrap_args -- mpv $mpv_args $folder$random_1 &
 }
 
+function usage() {
+    local CategoryList=(
+        "blue"
+        "colorful"
+        "dark"
+        "pink_purple"
+        "red"
+        "white"
+        "yellow"
+    )
+
+    echo ''
+    echo 'These categorys are avaliable:'
+
+    for category in "${CategoryList[@]}";
+    do
+        echo "    $category"
+    done
+
+    echo ''
+    echo 'Run:'
+    echo '    animated_wallpaper.sh your_category'
+    echo ''
+}
+
 until $(echo xwininfo -root) | grep "IsViewable" > /dev/null; do :; done
-animated_wallpapers "$1" $
+
+[[ ! -z "$1" ]] && animated_wallpapers "$1" || usage
