@@ -1,7 +1,8 @@
 #!/bin/bash
 
 function animated_wallpapers() {
-    pkill mpv 2> /dev/null
+
+    ( pidof -q mpv ) && pkill -9 mpv 2> /dev/null
 
     wallpaper="$1"
 
@@ -42,6 +43,7 @@ function usage() {
         "blue"
         "colorful"
         "dark"
+        "gray"
         "pink_purple"
         "red"
         "white"
