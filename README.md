@@ -33,11 +33,11 @@ $ ./install.sh full
 nvim:
 
 python3 file:
-* \ + r: run current script
+* `\ + r`: run current script
 
 cpp file:
-* \ + c: compile current script
-* \ + r: run current script
+* `\ + c`: compile current script
+* `\ + r`: run current script
 
 ## Full
 
