@@ -31,10 +31,13 @@ bindkey "\e[3~" delete-char
 bindkey -s '^l' '^Uclear; taskbook;^M'
 
 # PS1
-MAINCOLOR="%F{196}" # vermelho
-# MAINCOLOR="%F{202}" # laranja
+#MAINCOLOR="%F{196}" # vermelho
+#MAINCOLOR="%F{magenta}" # pink
+MAINCOLOR="%F{white}" # branco
+#MAINCOLOR="%F{202}" # laranja
 SECCOLOR="%F{8}" # cinza
-TERCOLOR="%F{white}" # branco
+#TERCOLOR="%F{white}" # branco
+TERCOLOR="%F{magenta}" # pink
 
 # Vi mode
 bindkey -v

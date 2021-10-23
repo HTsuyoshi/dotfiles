@@ -4,7 +4,7 @@ function set_DE() {
     # [[ -f ~/.scripts/feh_bg.sh ]] && ~/.scripts/feh_bg.sh rpgmaker
 
     # Animated Wallpaper
-    [[ -f ~/.scripts/animated_wallpaper.sh ]] && ~/.scripts/animated_wallpaper.sh &
+    [[ -f ~/.scripts/animated_wallpaper.sh ]] && ~/.scripts/animated_wallpaper.sh dark &
 
     # DWM status
     [[ -f ~/.scripts/dwm_bar.sh ]] && ~/.scripts/dwm_bar.sh &
