@@ -1,10 +1,8 @@
--- Example config in Lua
 require("onedark").setup({
   functionStyle = "italic",
   sidebars = {"qf", "vista_kind", "terminal", "packer"},
+  transparent = true,
 
-  -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-  colors = {hint = "orange", error = "#ff0000"}
 })
 
 require('nvim-treesitter.configs').setup {
