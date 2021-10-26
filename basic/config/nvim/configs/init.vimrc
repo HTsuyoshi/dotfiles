@@ -30,4 +30,7 @@ Plug 'bling/vim-airline' |
 " Smooth
 Plug 'yuttie/comfortable-motion.vim' " Smooth PageDown/PageUp
 
+" One dark theme
+Plug 'monsonjeremy/onedark.nvim'
+
 call plug#end()

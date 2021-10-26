@@ -6,7 +6,8 @@ filetype plugin on
 au BufRead,BufNewFile *.sage setfiletype python
 
 " Colors
-colorscheme badwolf
+"colorscheme badwolf
+
 syntax on
 set termguicolors
 
