@@ -12,6 +12,7 @@ yellow=#e0af68
 yellow1=#da8d57
 gray=#adbac7
 black=#21252b
+black=#32363c
 black1=#111111
 white=#e4e4e4
 
@@ -62,12 +63,12 @@ internet_usage() {
     awk '{
     if(l1){
         if(($2-l1)/(1024*1024) < 1) {
-            printf "^b#e0af68^^c#e4e4e4^  ^b#21252b^^c#e0af68^ %.1f Kb/s ^b#111111^ ", ($2-l1)/1024;
+            printf "^b#e0af68^^c#e4e4e4^  ^b#32363c^^c#e0af68^ %.1f Kb/s ^b#111111^ ", ($2-l1)/1024;
         } else {
             printf "^b#e0af68^^c#e4e4e4^  ^b#da8d57^ %2.1f Mb/s ^b#111111^ ", ($2-l1)/(1024*1024);
         }
         if(($10-l2)/(1024*1024) < 1) {
-            printf "^b#e0af68^^c#e4e4e4^ 祝 ^b#21252b^^c#e0af68^ %.1f Kb/s ^b#111111^", ($10-l2)/1024;
+            printf "^b#e0af68^^c#e4e4e4^ 祝 ^b#32363c^^c#e0af68^ %.1f Kb/s ^b#111111^", ($10-l2)/1024;
         } else {
             printf "^b#e0af68^^c#e4e4e4^ 祝 ^b#da8d57^ %2.1f Mb/s ^b#111111^", ($2-l1)/(1024*1024)
         }}
@@ -96,9 +97,9 @@ dwm_date () {
     local color1="$purple1"
     printf "^c$white^^b$color^"
     if [ "$IDENTIFIER" = "unicode" ]; then
-        printf "  ^b$color1^ %s ^b$black^^b$black1^ " "$(date "+%a, %d/%m/%y %H:%M")"
+        printf "  ^b$color1^ %s ^b$black1^^b$black1^ " "$(date "+%a, %d/%m/%y %H:%M")"
     else
-        printf " DAT ^b$color1^ %s ^b$black^^b$black1^ " "$(date "+%a, %d/%m/%y %H:%M")"
+        printf " DAT ^b$color1^ %s ^b$black1^^b$black1^ " "$(date "+%a, %d/%m/%y %H:%M")"
     fi
 }
 
