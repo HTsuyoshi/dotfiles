@@ -96,7 +96,7 @@ dwm_date () {
     local color1="$purple1"
     printf "^c$white^^b$color^"
     if [ "$IDENTIFIER" = "unicode" ]; then
-        printf "  ^b$color1^ %s ^b$black^^b$black1^ " "$(date "+%a, +%d/%m/%y %H:%M")"
+        printf "  ^b$color1^ %s ^b$black^^b$black1^ " "$(date "+%a, %d/%m/%y %H:%M")"
     else
         printf " DAT ^b$color1^ %s ^b$black^^b$black1^ " "$(date "+%a, %d/%m/%y %H:%M")"
     fi
