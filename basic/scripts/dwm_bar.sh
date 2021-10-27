@@ -5,8 +5,9 @@ blue=#61afef
 blue1=#509ede
 red=#db4b4b
 purple=#c678dd
-purple1=#b567cc
+purple1=#a456bb
 green=#98c379
+green1=#87b268
 yellow=#e0af68
 yellow1=#da8d57
 gray=#adbac7
@@ -15,14 +16,11 @@ black1=#111111
 white=#e4e4e4
 
 dwm_mem () {
-    df_check_location='/home'
 	# get all the infos first to avoid high resources usage
 	free_output=$(free -h | grep Mem)
-	df_output=$(df -h $df_check_location | tail -n 1)
 	# Used and total memory
 	MEMUSED=$(echo $free_output | awk '{print $3}')
 	MEMTOT=$(echo $free_output | awk '{print $2}')
-	# CPU temperature
     local color="$red"
 
     printf "^c$white^^b$color^"
@@ -37,8 +35,10 @@ dwm_mem () {
 }
 
 dwm_temp () {
-	TEMP=$(sensors | grep "Package id 0" | awk '{print $4}' | cut -c -5)
+	TEMP=$(sensors | grep "Package id 0" | awk '{print $4}' | cut -c 2-5)
+
     local color="$green"
+    local color1="$green1"
     printf "^c$white^^b$color^"
 
 	if [ "$IDENTIFIER" = "unicode" ]; then
@@ -47,7 +47,11 @@ dwm_temp () {
 		printf " C "
 	fi
 
-    printf "^b$black^^c$color^ %s ^b$black1^" "$TEMP"
+    if (( $(echo "$TEMP > 70.0" |bc -l) )); then
+        printf "^b$color1^^c$white^ %s ^b$black1^" "$TEMP"
+    else
+        printf "^b$black^^c$color^ %s ^b$black1^" "$TEMP"
+    fi
 }
 
 internet_usage() {
@@ -58,12 +62,12 @@ internet_usage() {
     awk '{
     if(l1){
         if(($2-l1)/(1024*1024) < 1) {
-            printf "^b#e0af68^^c#e4e4e4^  ^b#21252b^^c#e0af68^ %2.1f Mb/s ^b#111111^ ", ($2-l1)/(1024*1024);
+            printf "^b#e0af68^^c#e4e4e4^  ^b#21252b^^c#e0af68^ %.1f Kb/s ^b#111111^ ", ($2-l1)/1024;
         } else {
             printf "^b#e0af68^^c#e4e4e4^  ^b#da8d57^ %2.1f Mb/s ^b#111111^ ", ($2-l1)/(1024*1024);
         }
         if(($10-l2)/(1024*1024) < 1) {
-            printf "^b#e0af68^^c#e4e4e4^ 祝 ^b#21252b^^c#e0af68^ %2.1f Mb/s ^b#111111^", ($10-l2)/(1024*1024);
+            printf "^b#e0af68^^c#e4e4e4^ 祝 ^b#21252b^^c#e0af68^ %.1f Kb/s ^b#111111^", ($10-l2)/1024;
         } else {
             printf "^b#e0af68^^c#e4e4e4^ 祝 ^b#da8d57^ %2.1f Mb/s ^b#111111^", ($2-l1)/(1024*1024)
         }}
@@ -92,24 +96,29 @@ dwm_date () {
     local color1="$purple1"
     printf "^c$white^^b$color^"
     if [ "$IDENTIFIER" = "unicode" ]; then
-        printf "  ^b$color1^ %s %s^b$black^^b$black1^ " "$(date "+%a,")" "$(date "+%d/%m/%y %H:%M") "
+        printf "  ^b$color1^ %s ^b$black^^b$black1^ " "$(date "+%a, +%d/%m/%y %H:%M")"
     else
-        printf " DAT ^b$color1^ %s %s^b$black^^b$black1^ " "$(date "+%a,")" "$(date "+%d/%m/%y %H:%M") "
+        printf " DAT ^b$color1^ %s ^b$black^^b$black1^ " "$(date "+%a, %d/%m/%y %H:%M")"
     fi
 }
 
+complete_bar() {
+    LOC=$(readlink -f "$0")
+    DIR=$(dirname "$LOC")
 
+    while true
+    do
+        xsetroot -name "$(dwm_mem) $(dwm_temp) $(internet_usage) $(dwm_vpn) $(dwm_date)" && sleep 1
+    done
+}
 
 bar() {
     LOC=$(readlink -f "$0")
     DIR=$(dirname "$LOC")
-    padding="   "
-
-    # Change the charachter(s) used to seperate modules. If two are used, they will be placed at the start and end.
 
     while true
     do
-        xsetroot -name "$(dwm_mem) $(dwm_temp) $(internet_usage) $(dwm_vpn) $(dwm_date)$padding" && sleep 1
+        xsetroot -name "$(dwm_temp) $(internet_usage) $(dwm_mem) $(dwm_vpn) $(dwm_date)  " && sleep 1
     done
 }
 
