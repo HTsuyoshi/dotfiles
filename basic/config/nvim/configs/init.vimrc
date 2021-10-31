@@ -2,8 +2,8 @@ call plug#begin('~/.config/nvim/plugged')
 " Coding
 
 "" Snippets
-Plug 'SirVer/ultisnips' |
-        Plug 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
+"Plug 'SirVer/ultisnips' |
+"        Plug 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
 
 "" Language Server Protocol
 Plug 'neovim/nvim-lspconfig'
@@ -32,5 +32,8 @@ Plug 'yuttie/comfortable-motion.vim' " Smooth PageDown/PageUp
 
 " One dark theme
 Plug 'monsonjeremy/onedark.nvim'
+
+" SHOW NVIM IN DISCORD
+Plug 'andweeb/presence.nvim'
 
 call plug#end()
