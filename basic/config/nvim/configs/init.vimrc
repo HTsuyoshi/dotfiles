@@ -1,4 +1,8 @@
 call plug#begin('~/.config/nvim/plugged')
+" Japanese
+
+Plug 'vim-skk/eskk.vim'
+
 " Coding
 
 "" Snippets
