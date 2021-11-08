@@ -1,10 +1,22 @@
 function set_java() {
     export AWT_TOOLKIT=MToolkit
     export _JAVA_AWT_WM_NONREPARENTING=1
+}
 
+function set_japanese_input() {
+    # Settings for Japanese input
+    export GTK_IM_MODULE='ibus'
+    export QT_IM_MODULE='ibus'
+    export XMODIFIERS=@im='ibus'
+
+    #Toolbar for anthy
+    ibus-daemon -drx
 }
 
 # TERM=xterm-256color
 
 # Java
 set_java
+
+# Japanese
+set_japanese_input
