@@ -1,6 +1,18 @@
+# Colors
 autoload -U colors && colors
 export TERM=xterm-256color
+
+# History
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.cache/zsh/history
+
 CASE_SENSITIVE="true"
+
+# AutoComplete
+autoload -Uz compinit
+compinit
+_comp_options+=(globdots);
 
 # Cursor speed
 xset r rate 250 60
