@@ -47,7 +47,7 @@ internet_usage() {
     local color="$yellow"
     local color1="$yellow1"
 
-    local icon_color="^c$color^^b$black1^"
+    local icon_color="^c$color1^^b$black1^"
 
     internet="enp3s0"
 
