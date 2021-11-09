@@ -81,8 +81,8 @@ internet_usage() {
 }
 
 dwm_vpn () {
-    THM=$(nmcli -a | grep '10.2.16.237' | cut -c 8-18)
-    HTB=$(nmcli -a | grep '10.10.15.7' | cut -c 8-17 | uniq)
+    THM=$(nmcli -a | grep '10.2' | cut -c 8-18)
+    HTB=$(nmcli -a | grep '10.1' | cut -c 8-17 | uniq)
 
     local color="$blue"
     local color1="$blue1"
@@ -91,8 +91,8 @@ dwm_vpn () {
     local no_icon='VPN'
     local message='NO VPN'
 
-    [ "$THM" = '10.2.16.237' ] && icon='說' && message="THM $THM"
-    [ "$HTB" = '10.10.15.7' ] && icon='說' && message="HTB $HTB"
+    [ ! -z "$THM" ] && icon='說' && message="THM $THM"
+    [ ! -z "$HTB" ] && icon='說' && message="HTB $HTB"
 
     print_icon "$color" "$icon" "$no_icon"
 
