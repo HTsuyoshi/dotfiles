@@ -3,6 +3,17 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'vim-skk/eskk.vim'
 
+" Latex
+
+"" Syntax plug-in
+
+Plug 'lervag/vimtex'
+
+"" Folder sections
+
+Plug 'Konfekt/FastFold'
+Plug 'matze/vim-tex-fold'
+
 " Coding
 
 "" Snippets
