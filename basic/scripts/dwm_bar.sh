@@ -81,8 +81,8 @@ internet_usage() {
 }
 
 dwm_vpn () {
-    THM=$(nmcli -a | grep '10.2' | cut -c 8-18)
-    HTB=$(nmcli -a | grep '10.1' | cut -c 8-17 | uniq)
+    THM=$(nmcli -a | grep '0.2.1' | cut -c 8-18)
+    HTB=$(nmcli -a | grep '15.7' | cut -c 8-17 | uniq)
 
     local color="$blue"
     local color1="$blue1"
@@ -118,8 +118,53 @@ dwm_date () {
     printf "$BG $(date "+%a, %d/%m/%y %H:%M") ^b$black1^"
 }
 
+dwm_short_date () {
+    local color="$green"
+    local color1="$green1"
+
+    local icon=""
+    local no_icon="DAT"
+
+    print_icon "$color" "$icon" "$no_icon"
+
+
+    [ "$INVERT" = "on" ] && \
+        BG="^b$color1^^c$white^" || \
+        BG="^b$black1^^c$color^"
+
+    [ "$DARK" = "on" ] && BG="^b$black1^^c$color^"
+
+    printf "$BG $(date "+%d/%m %H:%M") ^b$black1^"
+}
+
 battery() {
     upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percentage"
+}
+
+dwm_spotify () {
+    MUSIC="$(playerctl metadata title) - $(playerctl metadata artist)"
+    STATUS=$(playerctl status)
+
+    local color="$yellow"
+    local color1="$yellow1"
+
+    local icon=""
+    [[ "$STATUS" = "Playing" ]] && icon="⏸"
+    local no_icon="PLA"
+    [[ "$STATUS" = "Playing" ]] && no_icon="PAU"
+
+    print_icon "$color" "$icon" "$no_icon"
+
+    [ "$INVERT" = "on" ] && \
+        BG="^b$color1^^c$white^" || \
+        BG="^b$black1^^c$color^"
+
+    [ "$DARK" = "on" ] && BG="^b$black1^^c$color^"
+
+    [[ ${#MUSIC} -gt 20 ]] && MUSIC="$(echo $MUSIC | cut -c 1-20)..."
+
+
+    printf " %s " "$MUSIC"
 }
 
 bar() {
@@ -128,7 +173,7 @@ bar() {
 
     while true
     do
-        xsetroot -name "$(dwm_temp) $(internet_usage) $(dwm_mem) $(dwm_vpn) $(dwm_date)  " && sleep 1
+        xsetroot -name "$(dwm_spotify) $(dwm_mem) $(dwm_vpn) $(dwm_short_date)  " && sleep 1
     done
 }
 
