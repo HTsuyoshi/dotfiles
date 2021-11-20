@@ -64,6 +64,6 @@ function usage() {
     echo ''
 }
 
-until $(echo xwininfo -root) | grep "IsViewable" > /dev/null; do :; done
+until $(echo xwininfo -root) | grep "IsViewable" > /dev/null; do sleep 1; done
 
 [[ ! -z "$1" ]] && animated_wallpapers "$1" || usage
