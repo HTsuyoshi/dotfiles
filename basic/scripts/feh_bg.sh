@@ -1,6 +1,6 @@
 #!/bin/sh
 
-folder="$HOME/opt/wallpapers/wallpaper1080"
+folder="$HOME/opt/wallpapers/"
 
 function usage() {
     local CategoryList=$(ls $folder/$1)
@@ -20,16 +20,16 @@ function usage() {
     echo ''
 }
 
-random_wallpaper() {
-	local all='feh --recursive --bg-fill --bg-scale --randomize'
-	
-	$all $folder/$1
-}
-
 set_wallpaper() {
 	local all='feh --bg-fill --bg-scale'
 	
-	$all $folder/$1
+	$all $folder/$1;
+}
+
+random_wallpaper() {
+	local all='feh --recursive --bg-fill --bg-scale --randomize'
+	
+    $all $folder/$1;
 }
 
 ( [[ -z $1 ]] || [ -d $folder/$1 ]) && usage $1 || ( [[ -z $2 ]] && set_wallpaper $1 )
