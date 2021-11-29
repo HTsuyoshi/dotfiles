@@ -31,6 +31,8 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} |
         Plug 'folke/lsp-colors.nvim' " Colors not supported by nvim
 
+Plug 'elkowar/yuck.vim'
+
 "" File Exploring
 Plug 'preservim/nerdtree' |
         \ Plug 'Xuyuanp/nerdtree-git-plugin' | " Detect git changes
