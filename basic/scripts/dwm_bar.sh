@@ -198,6 +198,6 @@ white=#e4e4e4
 
 [ $DARK = 'on' ] && black="$black1"
 
-until $(echo xwininfo -root) | grep 'IsViewable' > /dev/null; do sleep 1; done
+sleep 3
 
 bar
