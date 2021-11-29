@@ -32,5 +32,5 @@ set_wallpaper() {
 	$all $folder/$1
 }
 
-( [[ -z $1 ]] || [ -d $folder/$1 ]) && usage $1 || set_wallpaper $1
+( [[ -z $1 ]] || [ -d $folder/$1 ]) && usage $1 || ( [[ -z $2 ]] && set_wallpaper $1 )
 [[ $2 ]] && random_wallpaper $2
