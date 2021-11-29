@@ -1,6 +1,6 @@
 #!/bin/sh
 
-folder="$HOME/opt/wallpapers/wallpaper"
+folder="$HOME/opt/wallpapers/wallpaper1080"
 
 function usage() {
     local CategoryList=$(ls $folder)
