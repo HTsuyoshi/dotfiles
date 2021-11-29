@@ -3,7 +3,7 @@
 folder="$HOME/opt/wallpapers/wallpaper1080"
 
 function usage() {
-    local CategoryList=$(ls $folder)
+    local CategoryList=$(ls $folder/$1)
 
     echo ''
     echo 'These categorys are avaliable:'
@@ -20,10 +20,17 @@ function usage() {
     echo ''
 }
 
-set_wallpaper() {
+random_wallpaper() {
 	local all='feh --recursive --bg-fill --bg-scale --randomize'
 	
 	$all $folder/$1
 }
 
-[[ -z $1 ]] && usage || set_wallpaper $1
+set_wallpaper() {
+	local all='feh --bg-fill --bg-scale'
+	
+	$all $folder/$1
+}
+
+( [[ -z $1 ]] || [ -d $folder/$1 ]) && usage $1 || set_wallpaper $1
+[[ $2 ]] && random_wallpaper $2
