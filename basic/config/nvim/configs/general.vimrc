@@ -54,12 +54,10 @@ augroup END
 augroup lsp
     au!
 
-    au FileType python 
+    au FileType python
                 \ lua require'lspconfig'.pyright.setup{}
-    au FileType cpp 
+    au FileType cpp
                 \ lua require'lspconfig'.ccls.setup{}
-    au FileType java 
-                \ lua require('jdtls').start_or_attach({cmd = {'java-lsp.sh'}})
 augroup end
 
 lua require('config')
