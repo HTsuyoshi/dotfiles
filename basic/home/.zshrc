@@ -1,18 +1,60 @@
+function set_colors() {
+    autoload -U colors && colors
+    export TERM=xterm-256color
+}
+
+function set_aliases() {
+    alias ls="exa"
+    alias spotify-tui="spt"
+    alias WEEB="source $HOME/.scripts/WEEB.zsh"
+    alias FURQUIM="source $HOME/.scripts/FURQUIM.zsh"
+    alias AZZESP="PS1='$MAINCOLOR%n%F{reset}%F{8}@%F{reset}%m > '"
+
+    ## TMUX
+    # alias tmuxn='tmux new-session -s $$'
+    # _trap_exit() { tmux kill-session -t $$; }
+    # trap _trap_exit EXIT
+
+    ## Flameshot
+    alias flameshot="flameshot gui"
+}
+
+function set_history() {
+    HISTSIZE=10000
+    SAVEHIST=10000
+    HISTFILE=~/.cache/zsh/history
+
+    CASE_SENSITIVE="true"
+}
+
+function set_auto_complete() {
+    autoload -Uz compinit
+    compinit
+    _comp_options+=(globdots);
+    zstyle ':completion:*' completer _extensions _complete _approximate
+    zstyle ':completion:*' menu select
+    zstyle ':completion:*' file-list all
+    zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
+    zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
+    zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
+    zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+}
+
+function set_bind_keys() {
+    bindkey "^[[1;5C" forward-word
+    bindkey "^[[1;5D" backward-word
+    bindkey "\e[3~" delete-char 
+    bindkey -s '^l' '^Uclear; taskbook;^M'
+}
+
 # Colors
-autoload -U colors && colors
-export TERM=xterm-256color
+set_colors
 
 # History
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
-
-CASE_SENSITIVE="true"
+set_history
 
 # AutoComplete
-autoload -Uz compinit
-compinit
-_comp_options+=(globdots);
+set_auto_complete
 
 # Cursor speed
 xset r rate 250 60
@@ -21,26 +63,11 @@ xset r rate 250 60
 export EDITOR='/bin/nvim'
 
 # Aliases
-alias ls="exa"
-alias spotify-tui="spt"
-alias WEEB="source $HOME/.scripts/WEEB.zsh"
-alias FURQUIM="source $HOME/.scripts/FURQUIM.zsh"
-alias AZZESP="PS1='$MAINCOLOR%n%F{reset}%F{8}@%F{reset}%m > '"
-
-## TMUX
-alias tmuxn='tmux new-session -s $$'
-_trap_exit() { tmux kill-session -t $$; }
-trap _trap_exit EXIT
-
-## Flameshot
-alias flameshot="flameshot gui"
+set_aliases
 
 # Bindkeys
 
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-bindkey "\e[3~" delete-char 
-bindkey -s '^l' '^Uclear; taskbook;^M'
+set_bind_keys
 
 # PS1
 MAINCOLOR="%F{196}" # vermelho
