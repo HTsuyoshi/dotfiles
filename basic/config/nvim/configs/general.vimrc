@@ -58,6 +58,10 @@ augroup lsp
                 \ lua require'lspconfig'.pyright.setup{}
     au FileType cpp
                 \ lua require'lspconfig'.ccls.setup{}
+    au FileType hs
+                \ lua require'lspconfig'.hls.setup{}
+    au FileType tex
+                \ lua require'lspconfig'.texlab.setup{}
 augroup end
 
 lua require('config')

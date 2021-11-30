@@ -1,4 +1,9 @@
 # dotfiles
+
+## Do mannualy
+
+* Install Haskell-language-server and Haskell-language-server-wrapper
+
 ## Requirements
 
 * stow
