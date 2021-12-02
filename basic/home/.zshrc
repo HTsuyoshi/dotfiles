@@ -3,6 +3,16 @@ function set_colors() {
     export TERM=xterm-256color
 }
 
+# PS1
+MAINCOLOR="%F{196}" # vermelho
+#MAINCOLOR="%F{magenta}" # pink
+#MAINCOLOR="%F{148}" # purple
+#MAINCOLOR="%F{white}" # branco
+#MAINCOLOR="%F{202}" # laranja
+SECCOLOR="%F{8}" # cinza
+TERCOLOR="%F{white}" # branco
+#TERCOLOR="%F{magenta}" # pink
+
 function set_aliases() {
     alias ls="exa"
     alias spotify-tui="spt"
@@ -68,16 +78,6 @@ set_aliases
 # Bindkeys
 
 set_bind_keys
-
-# PS1
-MAINCOLOR="%F{196}" # vermelho
-#MAINCOLOR="%F{magenta}" # pink
-#MAINCOLOR="%F{148}" # purple
-#MAINCOLOR="%F{white}" # branco
-#MAINCOLOR="%F{202}" # laranja
-SECCOLOR="%F{8}" # cinza
-TERCOLOR="%F{white}" # branco
-#TERCOLOR="%F{magenta}" # pink
 
 # Vi mode
 bindkey -v
