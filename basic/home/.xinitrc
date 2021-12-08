@@ -35,13 +35,14 @@ fi
 function set_DE() {
 
     # Wallpaper
-    # [[ -f ~/.scripts/feh_bg.sh ]] && ~/.scripts/feh_bg.sh rpgmaker
+     [[ -f ~/.scripts/feh_bg.sh ]] && ~/.scripts/feh_bg.sh 2560 a
+
 
     # Animated Wallpaper
-    [[ -f ~/.scripts/animated_wallpaper.sh ]] && ~/.scripts/animated_wallpaper.sh blue &
+    #[[ -f ~/.scripts/animated_wallpaper.sh ]] && ~/.scripts/animated_wallpaper.sh blue &
 
     # DWM status
-    [[ -f ~/.scripts/dwm_bar.sh ]] && ~/.scripts/dwm_bar.sh &
+     [[ -f ~/.scripts/dwm_bar.sh ]] && ~/.scripts/dwm_bar.sh &
 
     picom &
 }
@@ -59,4 +60,5 @@ set_DE
 PATH=$PATH:/home/azz/.scripts
 
 # Execute DE
-exec dwm
+# exec bspwm
+ exec dwm
