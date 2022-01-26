@@ -1,5 +1,6 @@
-configuration {
+configuration
+{
     modi: "run";
-
-    theme: "squared-material-red.rasi";
 }
+
+@theme "squared-material-red.rasi"
