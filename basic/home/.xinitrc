@@ -62,3 +62,4 @@ PATH=$PATH:/home/azz/.scripts
 # Execute DE
 # exec bspwm
  exec dwm
+# exec budgie-desktop
