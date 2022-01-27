@@ -29,7 +29,7 @@ Plug 'nvim-lua/completion-nvim'
 
 "" Syntax Highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} |
-        Plug 'folke/lsp-colors.nvim' " Colors not supported by nvim
+       Plug 'folke/lsp-colors.nvim' " Colors not supported by nvim
 
 Plug 'elkowar/yuck.vim'
 
