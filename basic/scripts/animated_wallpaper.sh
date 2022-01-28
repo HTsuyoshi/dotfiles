@@ -1,39 +1,39 @@
 #!/bin/bash
 
-function animated_wallpapers() {
+xwinwrap_args="-ni -nf -b -ov -d"
+
+function animated_wallpaper() {
 
     ( pidof -q mpv ) && pkill -9 mpv 2> /dev/null
 
     wallpaper="$1"
 
-    local xwinwrap_args="-ni -b -nf -ov -d"
-    local mpv_args="-wid WID --loop --no-audio --no-resume-playback --panscan=1.0"
+    mpv_args="-wid WID --loop --no-audio --no-resume-playback --panscan=1.0"
 
-    local folder="$HOME/opt/animated_wallpapers/$wallpaper/"
-    local random_1=$(ls $folder |sort -R |tail -n 1)
-    local random_2=$(ls $folder |sort -R |tail -n 1)
+    folder="$HOME/opt/animated_wallpapers/$wallpaper/"
+    random_1=$(ls $folder |sort -R |tail -n 1)
+    random_2=$(ls $folder |sort -R |tail -n 1)
 
-    local screen_1="1920x1080"
-    local screen_2="1600x900+1920"
-    local align="--video-align-x=-1 --video-align-y=-1"
-    local scale="--video-scale-x=0.86 --video-scale-y=0.86"
+    screen_1="1920x1080"
+    screen_2="1600x900+2560"
+    align="--video-align-x=-1 --video-align-y=-1"
+    scale="--video-scale-x=0.86 --video-scale-y=0.86"
 
     nice -n 15 xwinwrap -g $screen_1 $xwinwrap_args -- mpv $mpv_args $folder$random_1 &
-    nice -n 15 xwinwrap -g $screen_2 $xwinwrap_args -- mpv $scale $align $mpv_args $folder$random_2 & 
+    nice -n 15 xwinwrap -g $screen_2 $xwinwrap_args -- mpv $scale $align $mpv_args $folder$random_2 &
 }
 
 function animated_wallpaper_one_screen() {
     pkill mpv 2> /dev/null
 
-    local wallpaper="perfect"
+    wallpaper="perfect"
+
     [[ ! -z "$1" ]] && wallpaper="$1"
 
-    xwinwrap_args="-ni -b -nf -fs -ov -d" # 1 screen
-
-    local folder="$HOME/opt/animated_wallpapers/$wallpaper/"
-    local random_1=$(ls $folder |sort -R |tail -n 1)
-    local screen_1="1920x1080"
-    local mpv_args="-wid WID --loop --no-audio --no-resume-playback --panscan=1.0"
+    folder="$HOME/opt/animated_wallpapers/$wallpaper/"
+    random_1=$(ls $folder |sort -R |tail -n 1)
+    screen_1="1366x768+2560"
+    mpv_args="-wid WID --loop --no-audio --no-resume-playback --panscan=1.0"
 
     nice -n 15 xwinwrap -g $screen_1 $xwinwrap_args -- mpv $mpv_args $folder$random_1 &
 }
@@ -66,4 +66,4 @@ function usage() {
 
 until $(echo xwininfo -root) | grep "IsViewable" > /dev/null; do sleep 1; done
 
-[[ ! -z "$1" ]] && animated_wallpapers "$1" || usage
+[[ ! -z "$1" ]] && animated_wallpaper_one_screen "1920/$1" || usage

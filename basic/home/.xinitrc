@@ -39,7 +39,7 @@ function set_DE() {
 
 
     # Animated Wallpaper
-    #[[ -f ~/.scripts/animated_wallpaper.sh ]] && ~/.scripts/animated_wallpaper.sh blue &
+    [[ -f ~/.scripts/animated_wallpaper.sh ]] && ~/.scripts/animated_wallpaper.sh blue &
 
     # DWM status
      [[ -f ~/.scripts/dwm_bar.sh ]] && ~/.scripts/dwm_bar.sh &
