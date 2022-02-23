@@ -14,8 +14,9 @@ TERCOLOR="%F{white}" # branco
 #TERCOLOR="%F{magenta}" # pink
 
 function set_aliases() {
-    alias ls="exa"
-    alias spotify-tui="spt"
+    alias ls='exa'
+    alias rm='rm -i'
+    alias spotify-tui='spt'
     alias WEEB="source $HOME/.scripts/WEEB.zsh"
     alias FURQUIM="source $HOME/.scripts/FURQUIM.zsh"
     alias AZZESP="PS1='$MAINCOLOR%n%F{reset}%F{8}@%F{reset}%m > '"

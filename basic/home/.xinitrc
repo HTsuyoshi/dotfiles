@@ -35,14 +35,13 @@ fi
 function set_DE() {
 
     # Wallpaper
-     [[ -f ~/.scripts/feh_bg.sh ]] && ~/.scripts/feh_bg.sh 2560 a
-
+    [[ -f ~/.scripts/feh_bg.sh ]] && ~/.scripts/feh_bg.sh 2560 a
 
     # Animated Wallpaper
-    [[ -f ~/.scripts/animated_wallpaper.sh ]] && ~/.scripts/animated_wallpaper.sh blue &
+    [[ -f ~/.scripts/animated_wallpaper.sh ]] && ~/.scripts/animated_wallpaper.sh normal &
 
     # DWM status
-     [[ -f ~/.scripts/dwm_bar.sh ]] && ~/.scripts/dwm_bar.sh &
+    [[ -f ~/.scripts/dwm_bar.sh ]] && ~/.scripts/dwm_bar.sh &
 
     picom &
 }
@@ -59,7 +58,9 @@ set_DE
 # Set PATH
 PATH=$PATH:/home/azz/.scripts
 
-# Execute DE
+# Execute WM
 # exec bspwm
  exec dwm
+
+# Execute DE
 # exec budgie-desktop

@@ -33,13 +33,13 @@ function animated_wallpaper_one_screen() {
     folder="$HOME/opt/animated_wallpapers/$wallpaper/"
     random_1=$(ls $folder |sort -R |tail -n 1)
     screen_1="1366x768+2560"
+    #screen_1="1366x768"
     mpv_args="-wid WID --loop --no-audio --no-resume-playback --panscan=1.0"
 
     nice -n 15 xwinwrap -g $screen_1 $xwinwrap_args -- mpv $mpv_args $folder$random_1 &
 }
 
-function usage() {
-    local CategoryList=(
+function usage() { local CategoryList=(
         "blue"
         "colorful"
         "dark"
