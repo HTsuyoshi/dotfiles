@@ -46,21 +46,17 @@ function set_DE() {
     picom &
 }
 
-# Other Settings
-[[ -f ~/.xprofile ]] && source ~/.xprofile
-
 # Notifications
 dunst &
 
-# Set Desktop Environment
-set_DE
+# Set Keyboard
+setxkbmap br
 
 # Set PATH
 PATH=$PATH:/home/azz/.scripts
 
-# Execute WM
-# exec bspwm
- exec dwm
+# Set Desktop Environment
+set_DE
 
-# Execute DE
-# exec budgie-desktop
+# Execute WM
+ exec dwm
