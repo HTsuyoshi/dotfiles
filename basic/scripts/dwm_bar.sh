@@ -138,7 +138,21 @@ dwm_short_date () {
 }
 
 battery() {
-    upower -i $(upower -e | grep 'BAT') | grep -E "state|to\ full|percentage"
+    local color="$purple"
+    local color1="$purple1"
+
+    local icon=""
+    local no_icon="BAT"
+
+    print_icon "$color" "$icon" "$no_icon"
+
+    [ "$INVERT" = "on" ] && \
+        BG="^b$color1^^c$white^" || \
+        BG="^b$black1^^c$color^"
+
+    [ "$DARK" = "on" ] && BG="^b$black1^^c$color^"
+
+    printf "$BG $(acpi | sed -e 's|Battery 0: ||' | awk -F ', ' '{printf $1 " " $2}') ^b$black1^"
 }
 
 dwm_spotify () {
@@ -177,6 +191,16 @@ bar() {
     done
 }
 
+bar_notebook() {
+    LOC=$(readlink -f "$0")
+    DIR=$(dirname "$LOC")
+
+    while true
+    do
+        xsetroot -name "$(dwm_spotify) $(dwm_mem) $(battery) $(dwm_short_date)  " && sleep 1
+    done
+}
+
 # Settings
 export IDENTIFIER="unicode"
 export INVERT="on"
@@ -200,4 +224,5 @@ white=#e4e4e4
 
 sleep 3
 
-bar
+# bar
+bar_notebook
