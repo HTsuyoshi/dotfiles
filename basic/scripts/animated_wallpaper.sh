@@ -7,7 +7,8 @@ mpv_args="-wid WID --loop --no-audio --no-resume-playback --panscan=1.0"
 screen_1="1920x1080"
 #screen_1="1366x768+2560"
 #screen_1="1366x768"
-screen_2="1600x900+2560"
+screen_2="1600x900+1920"
+#screen_2="1600x900+2560"
 
 function animated_wallpaper() {
 
@@ -22,8 +23,8 @@ function animated_wallpaper() {
     align="--video-align-x=-1 --video-align-y=-1"
     scale="--video-scale-x=0.86 --video-scale-y=0.86"
 
-    nice -n 15 xwinwrap -g $screen_1 $xwinwrap_args -- mpv $mpv_args $folder$random_1 &
-    nice -n 15 xwinwrap -g $screen_2 $xwinwrap_args -- mpv $scale $align $mpv_args $folder$random_2 &
+    nice -n 15 xwinwrap -g $screen_1 $xwinwrap_args -- mpv $mpv_args "$folder/$random_1" &
+    nice -n 15 xwinwrap -g $screen_2 $xwinwrap_args -- mpv $scale $align $mpv_args "$folder/$random_2" &
 }
 
 function animated_wallpaper_one_screen() {
@@ -33,10 +34,9 @@ function animated_wallpaper_one_screen() {
 
     [[ ! -z "$1" ]] && wallpaper="$1"
 
-    random_1=$(ls $folder |sort -R |tail -n 1)
+    random_1=$(ls $folder$1 |sort -R |tail -n 1)
 
-    nice -n 15 xwinwrap -g $screen_1 $xwinwrap_args -- mpv $mpv_args $folder$random_1 &
-    echo $folder$random_1
+    nice -n 15 xwinwrap -g $screen_1 $xwinwrap_args -- mpv $mpv_args "$folder$1/$random_1" &
 }
 
 function usage() {
@@ -44,7 +44,7 @@ function usage() {
     local CategoryList=("$(ls $folder/1920)")
 
     echo ''
-    echo 'These categorys are avaliable:'
+    echo 'These categories are avaliable:'
     echo ''
 
     echo "$CategoryList"
@@ -55,6 +55,6 @@ function usage() {
     echo ''
 }
 
-until $(echo xwininfo -root) | grep "IsViewable" > /dev/null; do sleep 1; done
+#until $(echo xwininfo -root) | grep "IsViewable" > /dev/null; do sleep 1; done
 
 [[ ! -z "$1" ]] && animated_wallpaper_one_screen "1920/$1" || usage
