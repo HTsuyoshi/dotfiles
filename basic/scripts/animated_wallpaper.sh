@@ -1,6 +1,13 @@
 #!/bin/bash
 
 xwinwrap_args="-ni -nf -b -ov -d"
+folder="$HOME/opt/animated_wallpapers/$wallpaper/"
+mpv_args="-wid WID --loop --no-audio --no-resume-playback --panscan=1.0"
+
+screen_1="1920x1080"
+#screen_1="1366x768+2560"
+#screen_1="1366x768"
+screen_2="1600x900+2560"
 
 function animated_wallpaper() {
 
@@ -8,14 +15,10 @@ function animated_wallpaper() {
 
     wallpaper="$1"
 
-    mpv_args="-wid WID --loop --no-audio --no-resume-playback --panscan=1.0"
 
-    folder="$HOME/opt/animated_wallpapers/$wallpaper/"
     random_1=$(ls $folder |sort -R |tail -n 1)
     random_2=$(ls $folder |sort -R |tail -n 1)
 
-    screen_1="1920x1080"
-    screen_2="1600x900+2560"
     align="--video-align-x=-1 --video-align-y=-1"
     scale="--video-scale-x=0.86 --video-scale-y=0.86"
 
@@ -26,39 +29,25 @@ function animated_wallpaper() {
 function animated_wallpaper_one_screen() {
     pkill mpv 2> /dev/null
 
-    wallpaper="perfect"
+    wallpaper="normal"
 
     [[ ! -z "$1" ]] && wallpaper="$1"
 
-    folder="$HOME/opt/animated_wallpapers/$wallpaper/"
     random_1=$(ls $folder |sort -R |tail -n 1)
-    #screen_1="1366x768+2560"
-    #screen_1="1366x768"
-    screen_1="1920x1080"
-    mpv_args="-wid WID --loop --no-audio --no-resume-playback --panscan=1.0"
 
     nice -n 15 xwinwrap -g $screen_1 $xwinwrap_args -- mpv $mpv_args $folder$random_1 &
     echo $folder$random_1
 }
 
-function usage() { local CategoryList=(
-        "blue"
-        "colorful"
-        "dark"
-        "gray"
-        "pink_purple"
-        "red"
-        "white"
-        "yellow"
-    )
+function usage() {
+
+    local CategoryList=("$(ls $folder/1920)")
 
     echo ''
     echo 'These categorys are avaliable:'
+    echo ''
 
-    for category in "${CategoryList[@]}";
-    do
-        echo "    $category"
-    done
+    echo "$CategoryList"
 
     echo ''
     echo 'Run:'
