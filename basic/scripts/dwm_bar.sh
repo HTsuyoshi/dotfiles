@@ -197,7 +197,7 @@ bar_notebook() {
 
     while true
     do
-        xsetroot -name "$(dwm_spotify) $(dwm_mem) $(battery) $(dwm_short_date)  " && sleep 1
+        xsetroot -name "$(dwm_spotify) $(dwm_mem) $(dwm_short_date) $(battery)  " && sleep 1
     done
 }
 
