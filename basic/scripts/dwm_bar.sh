@@ -152,7 +152,7 @@ battery() {
 
     [ "$DARK" = "on" ] && BG="^b$black1^^c$color^"
 
-    printf "$BG $(acpi | sed -e 's|Battery 0: ||' | awk -F ', ' '{printf $1 " " $2}') ^b$black1^"
+    printf "$BG $(acpi | sed -e 's|Battery 0: ||' | awk -F ', ' '{printf $2}') ^b$black1^"
 }
 
 dwm_spotify () {
