@@ -5,6 +5,10 @@ Plug 'vim-skk/eskk.vim'
 
 " Latex
 
+" Markdown
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
+
 "" Syntax plug-in
 
 Plug 'lervag/vimtex'
