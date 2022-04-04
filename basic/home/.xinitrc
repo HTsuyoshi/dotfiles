@@ -35,7 +35,7 @@ fi
 function set_DE() {
 
     # Wallpaper
-    [[ -f ~/.scripts/feh_bg.sh ]] && ~/.scripts/feh_bg.sh 2560 a
+    # [[ -f ~/.scripts/feh_bg.sh ]] && ~/.scripts/feh_bg.sh 1080 a
 
     # Animated Wallpaper
     [[ -f ~/.scripts/animated_wallpaper.sh ]] && ~/.scripts/animated_wallpaper.sh normal &
@@ -45,6 +45,8 @@ function set_DE() {
 
     picom &
 }
+
+[[ -f ~/.xprofile ]] && source ~/.xprofile
 
 # Notifications
 dunst &
@@ -59,4 +61,4 @@ PATH=$PATH:/home/azz/.scripts
 set_DE
 
 # Execute WM
- exec dwm
+exec dwm

@@ -140,9 +140,12 @@ dwm_short_date () {
 battery() {
     local color="$purple"
     local color1="$purple1"
+    local status=$(acpi | sed -e 's|Battery 0: ||' | awk -F ', ' '{printf $1}')
 
     local icon=""
+    [ "$status" = "Charging" ] && icon=""
     local no_icon="BAT"
+    [ "$status" = "Charging" ] && no_icon="CHR"
 
     print_icon "$color" "$icon" "$no_icon"
 
@@ -152,12 +155,12 @@ battery() {
 
     [ "$DARK" = "on" ] && BG="^b$black1^^c$color^"
 
-    printf "$BG $(acpi | sed -e 's|Battery 0: ||' | awk -F ', ' '{printf $2}') ^b$black1^"
+    echo "$BG $(acpi | sed -e 's|Battery 0: ||' | awk -F ', ' '{printf $2}') ^b$black1^"
 }
 
 dwm_spotify () {
-    MUSIC="$(playerctl metadata title) - $(playerctl metadata artist)"
-    STATUS=$(playerctl status)
+    MUSIC="$(playerctl metadata title 2> /dev/null) - $(playerctl metadata artist 2> /dev/null)"
+    STATUS=$(playerctl status 2> /dev/null)
 
     local color="$yellow"
     local color1="$yellow1"

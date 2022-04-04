@@ -18,7 +18,6 @@ let g:badwolf_darkgutter = 1
 let g:badwolf_css_props_highlight = 1
 
 " Functionality
-set expandtab
 set tabstop=4
 set shiftwidth=4
 set list

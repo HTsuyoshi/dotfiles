@@ -5,10 +5,6 @@ Plug 'vim-skk/eskk.vim'
 
 " Latex
 
-" Markdown
-Plug 'godlygeek/tabular'
-Plug 'preservim/vim-markdown'
-
 "" Syntax plug-in
 
 Plug 'lervag/vimtex'
@@ -53,6 +49,7 @@ Plug 'yuttie/comfortable-motion.vim' " Smooth PageDown/PageUp
 
 " One dark theme
 Plug 'monsonjeremy/onedark.nvim'
+Plug 'EdenEast/nightfox.nvim' " Vim-Plug
 
 " SHOW NVIM IN DISCORD
 Plug 'andweeb/presence.nvim'
