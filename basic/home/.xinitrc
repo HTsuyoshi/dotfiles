@@ -8,19 +8,19 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
-    xrdb -merge $sysresources
+	xrdb -merge $sysresources
 fi
 
 if [ -f $sysmodmap ]; then
-    xmodmap $sysmodmap
+	xmodmap $sysmodmap
 fi
 
 if [ -f "$userresources" ]; then
-    xrdb -merge "$userresources"
+	xrdb -merge "$userresources"
 fi
 
 if [ -f "$usermodmap" ]; then
-    xmodmap "$usermodmap"
+	xmodmap "$usermodmap"
 fi
 
 # start some nice programs
@@ -34,16 +34,17 @@ fi
 
 function set_DE() {
 
-    # Wallpaper
-    # [[ -f ~/.scripts/feh_bg.sh ]] && ~/.scripts/feh_bg.sh 1080 a
+	# Wallpaper
+	# [[ -f ~/.scripts/feh_bg.sh ]] && ~/.scripts/feh_bg.sh 1080 a
 
-    # Animated Wallpaper
-    [[ -f ~/.scripts/animated_wallpaper.sh ]] && ~/.scripts/animated_wallpaper.sh normal &
+	# Animated Wallpaper
+	[[ -f ~/.scripts/animated_wallpaper.sh ]] && ~/.scripts/animated_wallpaper.sh normal &
 
-    # DWM status
-    [[ -f ~/.scripts/dwm_bar.sh ]] && ~/.scripts/dwm_bar.sh &
+	# DWM status
+	[[ -f ~/.scripts/dwm_bar.sh ]] && ~/.scripts/dwm_bar.sh &
 
-    picom &
+	xrandr --output eDP-1 --brightness 0.6
+	picom &
 }
 
 [[ -f ~/.xprofile ]] && source ~/.xprofile
