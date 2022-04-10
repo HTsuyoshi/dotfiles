@@ -1,7 +1,52 @@
-function set_colors() {
-    autoload -U colors && colors
-    export TERM=xterm-256color
+function setup_config() {
+  # Colors
+  autoload -U colors && colors
+  export TERM=xterm-256color
+
+  # Aliases
+  alias ls='exa'
+  alias rm='rm -i'
+  alias spotify-tui='spt'
+  alias WEEB="source $HOME/.scripts/WEEB.zsh"
+  alias FURQUIM="source $HOME/.scripts/FURQUIM.zsh"
+  alias AZZESP="PS1='$MAINCOLOR%n%F{reset}%F{8}@%F{reset}%m > '"
+  alias flameshot="flameshot gui"
+
+  # History
+  HISTSIZE=10000
+  SAVEHIST=10000
+  HISTFILE=~/.cache/zsh/history
+  CASE_SENSITIVE="true"
+
+  # Auto complete
+  autoload -Uz compinit
+  compinit
+  _comp_options+=(globdots);
+  zstyle ':completion:*' completer _extensions _complete _approximate
+  zstyle ':completion:*' menu select
+  zstyle ':completion:*' file-list all
+  zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
+  zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
+  zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
+  zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+
+  # Bind keys
+  bindkey "^[[1;5C" forward-word
+  bindkey "^[[1;5D" backward-word
+  bindkey "\e[3~" delete-char
+
+  # Vi mode
+  bindkey -v
+  export KEYTIMEOUT=1
+
+  # Cursor speed
+  xset r rate 250 60 &> /dev/null
+
+  # Set default
+  export EDITOR='/bin/nvim'
 }
+
+setup_config
 
 # PS1
 MAINCOLOR="%F{196}" # vermelho
@@ -12,76 +57,6 @@ MAINCOLOR="%F{196}" # vermelho
 SECCOLOR="%F{8}" # cinza
 TERCOLOR="%F{white}" # branco
 #TERCOLOR="%F{magenta}" # pink
-
-function set_aliases() {
-    alias ls='exa'
-    alias rm='rm -i'
-    alias spotify-tui='spt'
-    alias WEEB="source $HOME/.scripts/WEEB.zsh"
-    alias FURQUIM="source $HOME/.scripts/FURQUIM.zsh"
-    alias AZZESP="PS1='$MAINCOLOR%n%F{reset}%F{8}@%F{reset}%m > '"
-
-    ## TMUX
-    # alias tmuxn='tmux new-session -s $$'
-    # _trap_exit() { tmux kill-session -t $$; }
-    # trap _trap_exit EXIT
-
-    ## Flameshot
-    alias flameshot="flameshot gui"
-}
-
-function set_history() {
-    HISTSIZE=10000
-    SAVEHIST=10000
-    HISTFILE=~/.cache/zsh/history
-
-    CASE_SENSITIVE="true"
-}
-
-function set_auto_complete() {
-    autoload -Uz compinit
-    compinit
-    _comp_options+=(globdots);
-    zstyle ':completion:*' completer _extensions _complete _approximate
-    zstyle ':completion:*' menu select
-    zstyle ':completion:*' file-list all
-    zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
-    zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
-    zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
-    zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
-}
-
-function set_bind_keys() {
-    bindkey "^[[1;5C" forward-word
-    bindkey "^[[1;5D" backward-word
-    bindkey "\e[3~" delete-char 
-}
-
-# Colors
-set_colors
-
-# History
-set_history
-
-# AutoComplete
-set_auto_complete
-
-# Cursor speed
-xset r rate 250 60
-
-# Set default
-export EDITOR='/bin/nvim'
-
-# Aliases
-set_aliases
-
-# Bindkeys
-
-set_bind_keys
-
-# Vi mode
-bindkey -v
-export KEYTIMEOUT=1
 
 ## Init
 setopt PROMPT_SUBST
@@ -97,9 +72,9 @@ THEME_VI_MODE_SYMBOL="${THEME_VI_INS_MODE_SYMBOL}"
 # on keymap change, define the mode and redraw prompt
 zle-keymap-select() {
   if [ "${KEYMAP}" = 'vicmd' ]; then
-    THEME_VI_MODE_SYMBOL="${THEME_VI_CMD_MODE_SYMBOL}"
+  THEME_VI_MODE_SYMBOL="${THEME_VI_CMD_MODE_SYMBOL}"
   else
-    THEME_VI_MODE_SYMBOL="${THEME_VI_INS_MODE_SYMBOL}"
+  THEME_VI_MODE_SYMBOL="${THEME_VI_INS_MODE_SYMBOL}"
   fi
   zle reset-prompt
 }
