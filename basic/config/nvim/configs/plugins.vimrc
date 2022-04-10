@@ -22,7 +22,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 """  Airline """
 " let g:airline_theme='badwolf'
-let g:airline_theme='onedark'
+let g:airline_theme='violet'
 " let g:airline_powerline_fonts = 1
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
