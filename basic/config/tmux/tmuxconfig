@@ -1,0 +1,1 @@
+set -g 'tmux-plugins/tmux-yank'
