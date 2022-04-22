@@ -24,7 +24,7 @@ check_battery() {
 	battery=$(acpi -b | grep -P -o '[0-9]+(?=%)')
 
 	[ "$status" = "Charging" ] && return
-	[ $battery -le 90 ] && CRITICAL_notification && return
+	[ $battery -le 5 ] && CRITICAL_notification && return
 	[ $battery -le 10 ] && critical_notification && return
 	[ $battery -le 15 ] && normal_notification && return
 	[ $battery -le 20 ] && low_notification && return
