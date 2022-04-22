@@ -37,7 +37,7 @@ function set_scripts() {
 	[[ -f ~/.xprofile ]] && source ~/.xprofile
 
 	# Battery Notification
-	[[ -f ~/.scripts/battery/battery.sh ]] && source ~/.scripts/battery/battery.sh
+	[[ -f ~/.scripts/battery/battery.sh ]] && source ~/.scripts/battery/battery.sh &
 
 	# Wallpaper
 	# [[ -f ~/.scripts/feh_bg.sh ]] && ~/.scripts/feh_bg.sh 1080 a
