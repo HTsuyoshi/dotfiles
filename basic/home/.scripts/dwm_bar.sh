@@ -40,10 +40,10 @@ dwm_mem () {
 
     print_icon "$color" "$icon" "$no_icon"
 
-    printf " $MEMUSED/$MEMTOT ^b$black1^" 
+    printf " $MEMUSED/$MEMTOT ^b$black1^"
 }
 
-internet_usage() {
+dwm_internet_usage() {
     local color="$yellow"
     local color1="$yellow1"
 
@@ -137,14 +137,16 @@ dwm_short_date () {
     printf "$BG $(date "+%d/%m %H:%M") ^b$black1^"
 }
 
-battery() {
+dwm_battery () {
     local color="$purple"
     local color1="$purple1"
     local status=$(acpi | sed -e 's|Battery 0: ||' | awk -F ', ' '{printf $1}')
+    local battery=$(acpi -b | grep -P -o '[0-9]+(?=%)')
 
     local icon=""
-    [ "$status" = "Charging" ] && icon=""
     local no_icon="BAT"
+
+    [ "$status" = "Charging" ] && icon=""
     [ "$status" = "Charging" ] && no_icon="CHR"
 
     print_icon "$color" "$icon" "$no_icon"
@@ -155,10 +157,10 @@ battery() {
 
     [ "$DARK" = "on" ] && BG="^b$black1^^c$color^"
 
-    echo "$BG $(acpi | sed -e 's|Battery 0: ||' | awk -F ', ' '{printf $2}') ^b$black1^"
+    echo "$BG $battery % ^b$black1^"
 }
 
-dwm_spotify () {
+dwm_player () {
     MUSIC="$(playerctl metadata title 2> /dev/null) - $(playerctl metadata artist 2> /dev/null)"
     STATUS=$(playerctl status 2> /dev/null)
 
@@ -184,23 +186,23 @@ dwm_spotify () {
     printf " %s " "$MUSIC"
 }
 
-bar() {
+dwm_bar () {
     LOC=$(readlink -f "$0")
     DIR=$(dirname "$LOC")
 
     while true
     do
-        xsetroot -name "$(dwm_spotify) $(dwm_mem) $(dwm_vpn) $(dwm_short_date)  " && sleep 1
+        xsetroot -name "$(dwm_player) $(dwm_mem) $(dwm_vpn) $(dwm_short_date)  " && sleep 1
     done
 }
 
-bar_notebook() {
+bar_notebook () {
     LOC=$(readlink -f "$0")
     DIR=$(dirname "$LOC")
 
     while true
     do
-        xsetroot -name "$(dwm_spotify) $(dwm_mem) $(dwm_short_date) $(battery)  " && sleep 1
+        xsetroot -name "$(dwm_player) $(dwm_mem) $(dwm_short_date) $(dwm_battery)  " && sleep 1
     done
 }
 

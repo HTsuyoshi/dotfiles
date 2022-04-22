@@ -32,7 +32,12 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-function set_DE() {
+function set_scripts() {
+
+	[[ -f ~/.xprofile ]] && source ~/.xprofile
+
+	# Battery Notification
+	[[ -f ~/.scripts/battery/battery.sh ]] && source ~/.scripts/battery/battery.sh
 
 	# Wallpaper
 	# [[ -f ~/.scripts/feh_bg.sh ]] && ~/.scripts/feh_bg.sh 1080 a
@@ -42,24 +47,28 @@ function set_DE() {
 
 	# DWM status
 	[[ -f ~/.scripts/dwm_bar.sh ]] && ~/.scripts/dwm_bar.sh &
+}
+
+function start_programs() {
+	# Notifications
+	dunst &
+	
+	# Set Keyboard
+	setxkbmap br
 
 	xrandr --output eDP-1 --brightness 0.6
 	picom &
 }
 
-[[ -f ~/.xprofile ]] && source ~/.xprofile
-
-# Notifications
-dunst &
-
-# Set Keyboard
-setxkbmap br
 
 # Set PATH
 PATH=$PATH:/home/azz/.scripts
 
-# Set Desktop Environment
-set_DE
+# Start Programs
+start_programs
+
+# Set Scripts
+set_scripts
 
 # Execute WM
 exec dwm
