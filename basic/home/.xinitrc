@@ -43,7 +43,7 @@ function set_scripts() {
 	# [[ -f ~/.scripts/feh_bg.sh ]] && ~/.scripts/feh_bg.sh 1080 a
 
 	# Animated Wallpaper
-	[[ -f ~/.scripts/animated_wallpaper.sh ]] && ~/.scripts/animated_wallpaper.sh normal &
+	[[ -f ~/.scripts/animated_wallpaper.sh ]] && ~/.scripts/animated_wallpaper.sh favourite &
 
 	# DWM status
 	# [[ -f ~/.scripts/dwm_bar.sh ]] && ~/.scripts/dwm_bar.sh &
