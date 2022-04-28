@@ -37,7 +37,7 @@ function set_scripts() {
 	[[ -f ~/.xprofile ]] && source ~/.xprofile
 
 	# Battery Notification
-	[[ -f ~/.scripts/battery/battery.sh ]] && source ~/.scripts/battery/battery.sh &
+	# [[ -f ~/.scripts/battery/battery.sh ]] && source ~/.scripts/battery/battery.sh &
 
 	# Wallpaper
 	# [[ -f ~/.scripts/feh_bg.sh ]] && ~/.scripts/feh_bg.sh 1080 a
@@ -46,13 +46,13 @@ function set_scripts() {
 	[[ -f ~/.scripts/animated_wallpaper.sh ]] && ~/.scripts/animated_wallpaper.sh normal &
 
 	# DWM status
-	[[ -f ~/.scripts/dwm_bar.sh ]] && ~/.scripts/dwm_bar.sh &
+	# [[ -f ~/.scripts/dwm_bar.sh ]] && ~/.scripts/dwm_bar.sh &
 }
 
 function start_programs() {
 	# Notifications
 	dunst &
-	
+
 	# Set Keyboard
 	setxkbmap br
 
