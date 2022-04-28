@@ -1,14 +1,12 @@
 #!/bin/bash
 
 xwinwrap_args="-ni -nf -b -ov -d"
-folder="$HOME/opt/animated_wallpapers/$wallpaper/"
 mpv_args="-wid WID --loop --no-audio --no-resume-playback --panscan=1.0"
+folder="$HOME/opt/animated_wallpapers/$wallpaper/"
 
 screen_1="1920x1080"
 screen_2="1600x900+1920"
 
-random_1=$(ls $folder |sort -R |tail -n 1)
-random_2=$(ls $folder |sort -R |tail -n 1)
 
 function kill_wallpaper() {
 	( pidof -q mpv ) && pkill -9 mpv 2> /dev/null
@@ -17,6 +15,9 @@ function kill_wallpaper() {
 
 function animated_wallpaper() {
 	wallpaper="$1"
+
+	random_1=$(ls $folder |sort -R |tail -n 1)
+	random_2=$(ls $folder |sort -R |tail -n 1)
 
 	align="--video-align-x=-1 --video-align-y=-1"
 	scale="--video-scale-x=0.86 --video-scale-y=0.86"
@@ -27,6 +28,10 @@ function animated_wallpaper() {
 
 function animated_wallpaper_one_screen() {
 	[[ ! -z "$1" ]] && wallpaper="$1" || wallpaper="favourite"
+
+	random_1=$(ls $folder$1 |sort -R |tail -n 1)
+	echo $random_1
+	echo "$folder$1/$random_1"
 
 	nice -n 15 xwinwrap -g $screen_1 $xwinwrap_args -- mpv $mpv_args "$folder$1/$random_1" &
 }

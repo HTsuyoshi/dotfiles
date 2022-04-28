@@ -46,7 +46,7 @@ function set_scripts() {
 	[[ -f ~/.scripts/animated_wallpaper.sh ]] && ~/.scripts/animated_wallpaper.sh favourite &
 
 	# DWM status
-	# [[ -f ~/.scripts/dwm_bar.sh ]] && ~/.scripts/dwm_bar.sh &
+	[[ -f ~/.scripts/dwm_bar.sh ]] && ~/.scripts/dwm_bar.sh &
 }
 
 function start_programs() {
