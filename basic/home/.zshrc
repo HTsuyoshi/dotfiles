@@ -21,14 +21,18 @@ function setup_config() {
   # Auto complete
   autoload -Uz compinit
   compinit
-  _comp_options+=(globdots);
   zstyle ':completion:*' completer _extensions _complete _approximate
   zstyle ':completion:*' menu select
   zstyle ':completion:*' file-list all
-  zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
-  zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
+  zstyle ':completion:*' file-sort modification
+  zstyle ':completion:*:*:*:*:descriptions' format '%F{green} %d %f'
+  zstyle ':completion:*:*:*:*:corrections' format '%F{yellow} %d (errors: %e) %f'
   zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
-  zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+  zstyle ':completion:*:warnings' format ' %F{red}ﮊ no matches found ﮊ%f'
+
+  zmodload zsh/complist
+  bindkey -M menuselect 'k' vi-up-line-or-history
+  bindkey -M menuselect 'j' vi-down-line-or-history
 
   # Bind keys
   bindkey "^[[1;5C" forward-word
