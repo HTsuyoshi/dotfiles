@@ -31,6 +31,8 @@ require('nvim-treesitter.configs').setup {
 }
 
 --Enable (broadcasting) snippet capability for completion
+--
+require'lspconfig'.quick_lint_js.setup{}
 
 local lspconfig = require'lspconfig'
 

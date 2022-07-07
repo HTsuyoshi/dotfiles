@@ -53,22 +53,27 @@ function setup_config() {
 setup_config
 
 # PS1
-MAINCOLOR="%F{196}" # vermelho
+#MAINCOLOR="%F{196}" # vermelho
 #MAINCOLOR="%F{magenta}" # pink
 #MAINCOLOR="%F{148}" # purple
 #MAINCOLOR="%F{white}" # branco
 #MAINCOLOR="%F{202}" # laranja
-SECCOLOR="%F{8}" # cinza
-TERCOLOR="%F{white}" # branco
+MAINCOLOR="%F{235}" # laranja
+#SECCOLOR="%F{8}" # cinza
+SECCOLOR="%F{235}" # laranja
+#TERCOLOR="%F{white}" # branco
 #TERCOLOR="%F{magenta}" # pink
+TERCOLOR="%F{235}" # laranja
 
 ## Init
 setopt PROMPT_SUBST
 
 ## Option
 THEME_PROMPT_PREFIX=${THEME_PROMPT_PREFIX:-''}
-THEME_VI_INS_MODE_SYMBOL=${THEME_VI_INS_MODE_SYMBOL:-'λ'}
-THEME_VI_CMD_MODE_SYMBOL=${THEME_VI_CMD_MODE_SYMBOL:-''}
+#THEME_VI_INS_MODE_SYMBOL=${THEME_VI_INS_MODE_SYMBOL:-'λ'}
+#THEME_VI_CMD_MODE_SYMBOL=${THEME_VI_CMD_MODE_SYMBOL:-''}
+THEME_VI_INS_MODE_SYMBOL=${THEME_VI_INS_MODE_SYMBOL:-'書く'}
+THEME_VI_CMD_MODE_SYMBOL=${THEME_VI_CMD_MODE_SYMBOL:-'歩く'}
 
 ## Set symbol for the initial mode
 THEME_VI_MODE_SYMBOL="${THEME_VI_INS_MODE_SYMBOL}"
@@ -99,4 +104,4 @@ TRAPINT() {
   return $(( 128 + $1 ))
 }
 
-PROMPT='$MAINCOLOR%n%F{reset}$SECCOLOR@%F{reset}$TERCOLOR%m%F{reset} %~ %(?.$TERCOLOR$THEME_VI_MODE_SYMBOL.$MAINCOLOR$THEME_VI_MODE_SYMBOL)%F{reset} '
+PROMPT='$MAINCOLOR%n%F{reset}$SECCOLOR %F{reset}$TERCOLOR%m%F{reset} %~ %(?.$TERCOLOR$THEME_VI_MODE_SYMBOL.$MAINCOLOR$THEME_VI_MODE_SYMBOL)%F{reset} '

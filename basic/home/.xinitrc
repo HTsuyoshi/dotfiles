@@ -40,10 +40,12 @@ function set_scripts() {
 	[[ -f ~/.scripts/battery/battery.sh ]] && source ~/.scripts/battery/battery.sh &
 
 	# Wallpaper
-	# [[ -f ~/.scripts/feh_bg.sh ]] && ~/.scripts/feh_bg.sh 1080 a
+	#[[ -f ~/.scripts/feh_bg.sh ]] && ~/.scripts/feh_bg.sh 1080 a
+	[[ -f ~/.scripts/feh_bg.sh ]] && ~/.scripts/feh_bg.sh 1080/games/wallpaperflare.com_wallpaper.jpg
+	#feh --bg-fill /usr/share/backgrounds/Images/doIt.png
 
 	# Animated Wallpaper
-	[[ -f ~/.scripts/animated_wallpaper.sh ]] && ~/.scripts/animated_wallpaper.sh favourite &
+	# [[ -f ~/.scripts/animated_wallpaper.sh ]] && ~/.scripts/animated_wallpaper.sh favourite &
 
 	# DWM status
 	[[ -f ~/.scripts/dwm_bar.sh ]] && ~/.scripts/dwm_bar.sh &

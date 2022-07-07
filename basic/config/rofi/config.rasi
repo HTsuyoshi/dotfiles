@@ -3,4 +3,4 @@ configuration
     modi: "run";
 }
 
-@theme "squared-material-red.rasi"
+@theme "black-white.rasi"
