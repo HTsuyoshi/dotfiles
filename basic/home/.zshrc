@@ -56,14 +56,16 @@ setup_config
 #MAINCOLOR="%F{196}" # vermelho
 #MAINCOLOR="%F{magenta}" # pink
 #MAINCOLOR="%F{148}" # purple
-#MAINCOLOR="%F{white}" # branco
 #MAINCOLOR="%F{202}" # laranja
-MAINCOLOR="%F{235}" # laranja
+MAINCOLOR="%F{235}"
+MAINCOLOR="%F{white}" # branco
 #SECCOLOR="%F{8}" # cinza
 SECCOLOR="%F{235}" # laranja
+SECCOLOR="%F{white}" # branco
 #TERCOLOR="%F{white}" # branco
 #TERCOLOR="%F{magenta}" # pink
 TERCOLOR="%F{235}" # laranja
+TERCOLOR="%F{white}" # branco
 
 ## Init
 setopt PROMPT_SUBST

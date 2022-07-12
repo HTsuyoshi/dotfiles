@@ -3,4 +3,4 @@ configuration
     modi: "run";
 }
 
-@theme "black-white.rasi"
+@theme "ayu-mirage.rasi"
