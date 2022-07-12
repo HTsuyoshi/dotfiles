@@ -49,7 +49,7 @@ Plug 'yuttie/comfortable-motion.vim' " Smooth PageDown/PageUp
 
 " One dark theme
 Plug 'monsonjeremy/onedark.nvim'
-Plug 'EdenEast/nightfox.nvim' " Vim-Plug
+Plug 'Luxed/ayu-vim'
 
 " SHOW NVIM IN DISCORD
 Plug 'andweeb/presence.nvim'

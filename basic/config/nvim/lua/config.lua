@@ -1,8 +1,8 @@
-require("onedark").setup({
-  functionStyle = "italic",
-  sidebars = {"qf", "vista_kind", "terminal", "packer"},
-  transparent = true,
-})
+-- require("onedark").setup({
+--   functionStyle = "italic",
+--   sidebars = {"qf", "vista_kind", "terminal", "packer"},
+--   transparent = true,
+-- })
 
 require("presence"):setup({
     -- General options

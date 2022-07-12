@@ -11,11 +11,15 @@ au BufRead,BufNewFile *.sage setfiletype python
 syntax on
 set termguicolors
 
+set background=dark     " for either mirage or dark version.
+let g:ayucolor="mirage" " for mirage version of theme
+colorscheme ayu
+
 "" Make the gutters darker than the background.
-let g:badwolf_darkgutter = 1
+"let g:badwolf_darkgutter = 1
 
 "" Turn on CSS properties highlighting
-let g:badwolf_css_props_highlight = 1
+"let g:badwolf_css_props_highlight = 1
 
 " Functionality
 set tabstop=4
