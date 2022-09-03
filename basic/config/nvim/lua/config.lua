@@ -1,35 +1,3 @@
--- require("onedark").setup({
---   functionStyle = "italic",
---   sidebars = {"qf", "vista_kind", "terminal", "packer"},
---   transparent = true,
--- })
-
-require("presence"):setup({
-    -- General options
-    auto_update         = true,                       -- Update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
-    neovim_image_text   = "The One True Text Editor", -- Text displayed when hovered over the Neovim image
-    main_image          = "neovim",                   -- Main image display (either "neovim" or "file")
-    client_id           = "793271441293967371",       -- Use your own Discord application client id (not recommended)
-    log_level           = nil,                        -- Log messages at or above this level (one of the following: "debug", "info", "warn", "error")
-    debounce_timeout    = 10,                         -- Number of seconds to debounce events (or calls to `:lua package.loaded.presence:update(<filename>, true)`)
-    enable_line_number  = false,                      -- Displays the current line number instead of the current project
-
-    -- Rich Presence text options
-    editing_text        = "Editing %s",               -- Format string rendered when an editable file is loaded in the buffer
-    file_explorer_text  = "Browsing %s",              -- Format string rendered when browsing a file explorer
-    git_commit_text     = "Committing changes",       -- Format string rendered when commiting changes in git plugin_manager_text = "Managing plugins",         -- Format string rendered when managing plugins
-    reading_text        = "Reading %s",               -- Format string rendered when a read-only or unmodifiable file is loaded in the buffer
-    workspace_text      = "Working on %s",            -- Workspace format string (either string or function(git_project_name: string|nil, buffer: string): string)
-    line_number_text    = "Line %s out of %s",        -- Line number format string (for when enable_line_number is set to true)
-})
-
-require('nvim-treesitter.configs').setup {
-    ensure_installed = "maintained",
-    highlight = {
-        enable = true,
-    },
-}
-
 --Enable (broadcasting) snippet capability for completion
 --
 require'lspconfig'.quick_lint_js.setup{}
@@ -42,9 +10,6 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 require'lspconfig'.cssls.setup {
   capabilities = capabilities,
 }
-
-require'lspconfig'.cssls.setup{}
-
 lspconfig.ccls.setup {
   init_options = {
     compilationDatabaseDirectory = "build";
@@ -58,13 +23,13 @@ lspconfig.ccls.setup {
 }
 
 require'lspconfig'.rust_analyzer.setup{}
-
 require("lsp-colors").setup({
   Error = "#db4b4b",
   Warning = "#e0af68",
   Information = "#0db9d7",
   Hint = "#10B981"
 })
+
 local nvim_lsp = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys
@@ -130,6 +95,7 @@ require'compe'.setup {
   source = {
     path = true;
     nvim_lsp = true;
+	ultisnips = true;
   };
 }
 
@@ -170,3 +136,29 @@ vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+
+require('nvim-treesitter.configs').setup {
+    ensure_installed = "maintained",
+    highlight = {
+        enable = true,
+    },
+}
+
+require("presence"):setup({
+    -- General options
+    auto_update         = true,                       -- Update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
+    neovim_image_text   = "The One True Text Editor", -- Text displayed when hovered over the Neovim image
+    main_image          = "neovim",                   -- Main image display (either "neovim" or "file")
+    client_id           = "793271441293967371",       -- Use your own Discord application client id (not recommended)
+    log_level           = nil,                        -- Log messages at or above this level (one of the following: "debug", "info", "warn", "error")
+    debounce_timeout    = 10,                         -- Number of seconds to debounce events (or calls to `:lua package.loaded.presence:update(<filename>, true)`)
+    enable_line_number  = false,                      -- Displays the current line number instead of the current project
+
+    -- Rich Presence text options
+    editing_text        = "Editing %s",               -- Format string rendered when an editable file is loaded in the buffer
+    file_explorer_text  = "Browsing %s",              -- Format string rendered when browsing a file explorer
+    git_commit_text     = "Committing changes",       -- Format string rendered when commiting changes in git plugin_manager_text = "Managing plugins",         -- Format string rendered when managing plugins
+    reading_text        = "Reading %s",               -- Format string rendered when a read-only or unmodifiable file is loaded in the buffer
+    workspace_text      = "Working on %s",            -- Workspace format string (either string or function(git_project_name: string|nil, buffer: string): string)
+    line_number_text    = "Line %s out of %s",        -- Line number format string (for when enable_line_number is set to true)
+})

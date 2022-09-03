@@ -1,57 +1,34 @@
 call plug#begin('~/.config/nvim/plugged')
-" Japanese
-
-Plug 'vim-skk/eskk.vim'
-
 " Latex
-
-"" Syntax plug-in
-
+ " Syntax plug-in
 Plug 'lervag/vimtex'
-
-"" Folder sections
-
-Plug 'Konfekt/FastFold'
+ " Folder sections
 Plug 'matze/vim-tex-fold'
 
 " Coding
-
-"" Snippets
-"Plug 'SirVer/ultisnips' |
-"        Plug 'honza/vim-snippets' " Snippets are separated from the engine. Add this if you want them:
-
-"" Language Server Protocol
+ " Snippets
+Plug 'SirVer/ultisnips' |
+        Plug 'honza/vim-snippets'
+ " Language Server Protocol
 Plug 'neovim/nvim-lspconfig'
-
-"" Autocomplete
+ " Autocomplete
 Plug 'hrsh7th/nvim-compe'
 Plug 'nvim-lua/completion-nvim'
-
-"" Syntax Highlighting
+ " Syntax Highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} |
        Plug 'folke/lsp-colors.nvim' " Colors not supported by nvim
-
-Plug 'elkowar/yuck.vim'
-
-"" File Exploring
+ " File Exploring
 Plug 'preservim/nerdtree' |
-        \ Plug 'Xuyuanp/nerdtree-git-plugin' | " Detect git changes
-            " \ Plug 'ryanoasis/vim-devicons' " Custom icons
+        \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+            \ Plug 'ryanoasis/vim-devicons'
 
 " Useless configuration
-
-" Under bar
+ " Under bar
 Plug 'bling/vim-airline' |
-    Plug 'vim-airline/vim-airline-themes' " Airline Themes
-
-" Smooth
-Plug 'yuttie/comfortable-motion.vim' " Smooth PageDown/PageUp
-
-" One dark theme
-Plug 'monsonjeremy/onedark.nvim'
-Plug 'Luxed/ayu-vim'
-
-" SHOW NVIM IN DISCORD
+    Plug 'vim-airline/vim-airline-themes'
+ " Nvim discord status
 Plug 'andweeb/presence.nvim'
-
+" Themes
+"Plug 'monsonjeremy/onedark.nvim'
+Plug 'Luxed/ayu-vim'
 call plug#end()
