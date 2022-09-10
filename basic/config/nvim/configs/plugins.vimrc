@@ -1,9 +1,8 @@
 """ UltiSnips """
-let g:UltiSnipsEditSplit = 'vertical'
 let g:UltiSnipsSnippetsDir = '.config/nvim/UltiSnips'
 let g:UltiSnipsExpandTrigger="<s-tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<C-b>"
+let g:UltiSnipsJumpBackwardTrigger="<C-z>"
 
 """  Airline """
 let g:airline_theme='violet'
