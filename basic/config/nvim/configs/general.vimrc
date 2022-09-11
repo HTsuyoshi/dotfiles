@@ -6,6 +6,7 @@ let g:ayucolor="mirage"
 colorscheme ayu
 
 " Functionality
+set clipboard=unnamedplus
 set tabstop=4
 set shiftwidth=4
 set list
