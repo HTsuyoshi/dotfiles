@@ -33,5 +33,5 @@ check_battery() {
 while true
 do
 	check_battery
-	sleep 15
+	sleep 40
 done
