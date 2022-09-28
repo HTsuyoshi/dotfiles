@@ -7,7 +7,7 @@ function setup_config() {
   alias spotify-tui='spt'
   alias WEEB="source $HOME/.scripts/WEEB.zsh"
   alias FURQUIM="source $HOME/.scripts/FURQUIM.zsh"
-  alias AZZESP="PS1='$MAINCOLOR%n%F{reset}%F{8}@%F{reset}%m > '"
+  alias AZZESP="PS1='%n%F{reset}%F{8}@%F{reset}%m > '"
   alias flameshot="flameshot gui"
 
   # History
@@ -86,9 +86,4 @@ TRAPINT() {
   return $(( 128 + $1 ))
 }
 
-#OS=''
-OS=' '
-#OS_ERR=''
-OS_ERR='喝'
-
-PROMPT="%(?.%F{blue}$OS.%F{red}$OS_ERR)%F{reset} %n %c %F{208}%(?.%F{blue} %F{reset}$THEME_VI_MODE_SYMBOL.%F{red} %F{reset}$THEME_VI_MODE_SYMBOL) "
+PROMPT='%F{97}%n%F{reset}   %m %(?.%F{green} .%F{208} )%F{reset} %c %F{97}$THEME_VI_MODE_SYMBOL%F{reset} '
