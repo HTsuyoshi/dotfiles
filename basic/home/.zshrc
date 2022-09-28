@@ -1,7 +1,5 @@
 function setup_config() {
-  # Colors
-  autoload -U colors && colors
-  export TERM=xterm-256color
+  # Colors autoload -U colors && colors export TERM=xterm-256color
 
   # Aliases
   alias ls='exa'
@@ -17,7 +15,6 @@ function setup_config() {
   SAVEHIST=10000
   HISTFILE=~/.cache/zsh/history
   CASE_SENSITIVE="true"
-
   # Auto complete
   autoload -Uz compinit
   compinit
@@ -52,28 +49,11 @@ function setup_config() {
 
 setup_config
 
-# PS1
-#MAINCOLOR="%F{196}" # vermelho
-#MAINCOLOR="%F{magenta}" # pink
-#MAINCOLOR="%F{148}" # purple
-#MAINCOLOR="%F{202}" # laranja
-MAINCOLOR="%F{235}"
-MAINCOLOR="%F{white}" # branco
-#SECCOLOR="%F{8}" # cinza
-SECCOLOR="%F{235}" # laranja
-SECCOLOR="%F{white}" # branco
-#TERCOLOR="%F{white}" # branco
-#TERCOLOR="%F{magenta}" # pink
-TERCOLOR="%F{235}" # laranja
-TERCOLOR="%F{white}" # branco
-
 ## Init
 setopt PROMPT_SUBST
 
 ## Option
 THEME_PROMPT_PREFIX=${THEME_PROMPT_PREFIX:-''}
-#THEME_VI_INS_MODE_SYMBOL=${THEME_VI_INS_MODE_SYMBOL:-'λ'}
-#THEME_VI_CMD_MODE_SYMBOL=${THEME_VI_CMD_MODE_SYMBOL:-''}
 THEME_VI_INS_MODE_SYMBOL=${THEME_VI_INS_MODE_SYMBOL:-'書く'}
 THEME_VI_CMD_MODE_SYMBOL=${THEME_VI_CMD_MODE_SYMBOL:-'歩く'}
 
@@ -106,4 +86,9 @@ TRAPINT() {
   return $(( 128 + $1 ))
 }
 
-PROMPT='$MAINCOLOR%n%F{reset}$SECCOLOR %F{reset}$TERCOLOR%m%F{reset} %~ %(?.$TERCOLOR$THEME_VI_MODE_SYMBOL.$MAINCOLOR$THEME_VI_MODE_SYMBOL)%F{reset} '
+#OS=''
+OS=' '
+#OS_ERR=''
+OS_ERR='喝'
+
+PROMPT="%(?.%F{blue}$OS.%F{red}$OS_ERR)%F{reset} %n %c %F{208}%(?.%F{blue} %F{reset}$THEME_VI_MODE_SYMBOL.%F{red} %F{reset}$THEME_VI_MODE_SYMBOL) "
