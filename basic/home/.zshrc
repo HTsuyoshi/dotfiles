@@ -86,4 +86,4 @@ TRAPINT() {
   return $(( 128 + $1 ))
 }
 
-PROMPT='%F{97}%n%F{reset}   %m %(?.%F{green} .%F{208} )%F{reset} %c %F{97}$THEME_VI_MODE_SYMBOL%F{reset} '
+PROMPT='%(?..%F{red} )%F{reset}%F{97}%n%F{reset} %F{208} %F{reset} %m %F{208} %F{reset} %c %F{97}$THEME_VI_MODE_SYMBOL%F{reset}'
