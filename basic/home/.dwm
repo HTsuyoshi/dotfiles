@@ -2,6 +2,8 @@
 
 xrandr --output eDP-1 --brightness 0.6
 
+feh --bg-fill ~/.wallpaper
+
 # Battery Notification
 [[ -f ~/.scripts/battery/battery.sh ]] && source ~/.scripts/battery/battery.sh &
 
@@ -16,6 +18,8 @@ setxkbmap br
 
 # Opacity
 picom &
+
+disown
 
 # Set PATH
 PATH=$PATH:/home/azz/.scripts
