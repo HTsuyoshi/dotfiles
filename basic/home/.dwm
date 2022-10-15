@@ -1,0 +1,21 @@
+#!/bin/sh
+
+xrandr --output eDP-1 --brightness 0.6
+
+# Battery Notification
+[[ -f ~/.scripts/battery/battery.sh ]] && source ~/.scripts/battery/battery.sh &
+
+# DWM status
+[[ -f ~/.scripts/dwm_bar.sh ]] && ~/.scripts/dwm_bar.sh &
+
+# Notifications
+dunst &
+
+# Set Keyboard
+setxkbmap br
+
+# Opacity
+picom &
+
+# Set PATH
+PATH=$PATH:/home/azz/.scripts
