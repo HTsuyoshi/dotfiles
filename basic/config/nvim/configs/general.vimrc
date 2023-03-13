@@ -38,17 +38,17 @@ augroup exe_code
 augroup END
 
 " nvim-lspconfig
-augroup lsp
-    au!
-    au FileType python
-                \ lua require'lspconfig'.pyright.setup{}
-    au FileType cpp
-                \ lua require'lspconfig'.ccls.setup{}
-    au FileType hs
-                \ lua require'lspconfig'.hls.setup{}
-    au FileType tex
-                \ lua require'lspconfig'.texlab.setup{}
-augroup end
+"augroup lsp
+"    au!
+"    au FileType python
+"                \ lua require'lspconfig'.pyright.setup{}
+"    au FileType cpp
+"                \ lua require'lspconfig'.ccls.setup{}
+"    au FileType hs
+"                \ lua require'lspconfig'.hls.setup{}
+"    au FileType tex
+"                \ lua require'lspconfig'.texlab.setup{}
+"augroup end
 
 " Highlight to .sage files
 au BufRead,BufNewFile *.sage setfiletype python

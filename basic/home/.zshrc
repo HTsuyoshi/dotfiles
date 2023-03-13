@@ -87,3 +87,5 @@ TRAPINT() {
 }
 
 PROMPT='%(?..%F{red} )%F{reset}%F{97}%n%F{reset} %F{208} %F{reset} %m %F{208} %F{reset} %c %F{97}$THEME_VI_MODE_SYMBOL%F{reset}'
+
+echo 'K8s page 77'

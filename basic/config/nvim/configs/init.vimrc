@@ -33,13 +33,21 @@ call plug#begin('~/.config/nvim/plugged')
  " Language Server Protocol
  Plug 'neovim/nvim-lspconfig'
  " Autocomplete
- Plug 'hrsh7th/nvim-compe'
- Plug 'nvim-lua/completion-nvim'
+ Plug 'neovim/nvim-lspconfig'
+ Plug 'hrsh7th/cmp-nvim-lsp'
+ Plug 'hrsh7th/cmp-buffer'
+ Plug 'hrsh7th/cmp-path'
+ Plug 'hrsh7th/cmp-cmdline'
+ Plug 'hrsh7th/nvim-cmp'
+ Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+ "Plug 'nvim-lua/completion-nvim'
+
  " Syntax Highlighting
  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} |
 	Plug 'folke/lsp-colors.nvim' " Colors not supported by nvim
+
  " File Exploring
-Plug 'preservim/nerdtree' |
+ Plug 'preservim/nerdtree' |
 	\ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' |
 	\ Plug 'Xuyuanp/nerdtree-git-plugin' |
 	\ Plug 'ryanoasis/vim-devicons'
