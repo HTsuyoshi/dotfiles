@@ -37,19 +37,6 @@ augroup exe_code
     autocmd FileType cpp nnoremap <buffer> <localleader>r \ :sp <CR> :term ./a.out :startinsert<CR>
 augroup END
 
-" nvim-lspconfig
-"augroup lsp
-"    au!
-"    au FileType python
-"                \ lua require'lspconfig'.pyright.setup{}
-"    au FileType cpp
-"                \ lua require'lspconfig'.ccls.setup{}
-"    au FileType hs
-"                \ lua require'lspconfig'.hls.setup{}
-"    au FileType tex
-"                \ lua require'lspconfig'.texlab.setup{}
-"augroup end
-
 " Highlight to .sage files
 au BufRead,BufNewFile *.sage setfiletype python
 

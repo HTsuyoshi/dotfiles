@@ -32,9 +32,9 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'honza/vim-snippets'
  " Language Server Protocol
  Plug 'neovim/nvim-lspconfig'
- " Autocomplete
- Plug 'neovim/nvim-lspconfig'
  Plug 'hrsh7th/cmp-nvim-lsp'
+ " Autocomplete
+ Plug 'hrsh7th/cmp-nvim-lua'
  Plug 'hrsh7th/cmp-buffer'
  Plug 'hrsh7th/cmp-path'
  Plug 'hrsh7th/cmp-cmdline'
