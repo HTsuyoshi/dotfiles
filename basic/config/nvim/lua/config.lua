@@ -33,15 +33,18 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lua' },
     { name = 'nvim_lsp' },
-    { name = 'ultisnips' },
-	{ name = 'path' },
+    { name = 'ultisnips' }, { name = 'path' },
   }, {
     { name = 'buffer' },
   })
 })
 
 -- Set up lspconfig.
+
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+
+-- C
 
 require('lspconfig').clangd.setup {
   capabilities = capabilities,
@@ -51,6 +54,8 @@ require('lspconfig').clangd.setup {
   }
 }
 
+-- Python
+
 require('lspconfig').pyright.setup {
   capabilities = capabilities,
   on_attach = on_attach,
@@ -59,9 +64,23 @@ require('lspconfig').pyright.setup {
   }
 }
 
+-- Tex
+
 require('lspconfig').texlab.setup {
   capabilities = capabilities,
   on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  }
+}
+
+-- GLSL
+
+require('lspconfig').glslls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  filetypes = {},
+  cmd = {"glslls", "--stdin"},
   flags = {
     debounce_text_changes = 150,
   }

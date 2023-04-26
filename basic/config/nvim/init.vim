@@ -8,4 +8,5 @@ endif
 source $HOME/.config/nvim/configs/init.vimrc
 source $HOME/.config/nvim/configs/plugins.vimrc
 source $HOME/.config/nvim/configs/general.vimrc
+source $HOME/.config/nvim/configs/detect_file.vimrc
 source $HOME/.config/nvim/configs/keys.vimrc
