@@ -48,6 +48,6 @@ cpp file:
 
 #### Configs
 
-* `qutebrowser`: Set theme
+* `qutebrowser`: Colorscheme and search engine
 * `spotify-tui`:
 * `cool-retro-term`: Set font and effects

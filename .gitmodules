@@ -1,0 +1,3 @@
+[submodule "full/config/qutebrowser/full/config/qutebrowser/themes/qute-city-lights"]
+	path = full/config/qutebrowser/full/config/qutebrowser/themes/qute-city-lights
+	url = https://github.com/gicrisf/qute-city-lights
