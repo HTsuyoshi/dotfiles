@@ -1,9 +1,9 @@
+lua require('config')
+
 " Theme
 syntax on
 set termguicolors
-set background=dark
-let g:ayucolor="mirage"
-colorscheme ayu
+colorscheme onedark
 
 " Functionality
 set clipboard=unnamedplus
@@ -40,4 +40,3 @@ augroup END
 " Highlight to .sage files
 au BufRead,BufNewFile *.sage setfiletype python
 
-lua require('config')

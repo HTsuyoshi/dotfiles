@@ -1,7 +1,9 @@
 call plug#begin('~/.config/nvim/plugged')
 " Latex
- " Syntax plug-in
- Plug 'lervag/vimtex'
+ " Folder sections
+ Plug 'github/copilot.vim'
+
+" Latex
  " Folder sections
  Plug 'matze/vim-tex-fold'
 
@@ -23,8 +25,8 @@ call plug#begin('~/.config/nvim/plugged')
  Plug 'andweeb/presence.nvim'
 
 " Themes
-"Plug 'monsonjeremy/onedark.nvim'
- Plug 'Luxed/ayu-vim'
+ Plug 'navarasu/onedark.nvim'
+ "Plug 'Shatur/neovim-ayu'
 
 " Coding
  " Snippets
@@ -41,6 +43,8 @@ call plug#begin('~/.config/nvim/plugged')
  Plug 'hrsh7th/nvim-cmp'
  Plug 'quangnguyen30192/cmp-nvim-ultisnips'
  "Plug 'nvim-lua/completion-nvim'
+ " Diagnostics, references, telescope
+ Plug 'folke/trouble.nvim'
 
  " Syntax Highlighting
  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} |

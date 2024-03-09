@@ -1,4 +1,4 @@
-local cmp = require'cmp'
+local cmp = require('cmp')
 local cmp_ultisnips_mappings = require('cmp_nvim_ultisnips.mappings')
 
 cmp.setup({
@@ -43,7 +43,6 @@ cmp.setup({
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-
 -- C
 
 require('lspconfig').clangd.setup {
@@ -74,17 +73,102 @@ require('lspconfig').texlab.setup {
   }
 }
 
--- GLSL
+-- HTML
 
-require('lspconfig').glslls.setup {
+require('lspconfig').html.setup {
   capabilities = capabilities,
   on_attach = on_attach,
-  filetypes = {},
-  cmd = {"glslls", "--stdin"},
   flags = {
     debounce_text_changes = 150,
   }
 }
+
+-- CSS
+
+require('lspconfig').cssls.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  }
+}
+
+-- Javascript/Typescript
+
+require('lspconfig').eslint.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  },
+  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue", "svelte", "astro" },
+  settings = {
+  codeAction = {
+    disableRuleComment = {
+      enable = true,
+      location = "separateLine"
+    },
+    showDocumentation = {
+      enable = true
+    }
+  },
+  codeActionOnSave = {
+    enable = true,
+    mode = "all"
+  },
+  experimental = {
+    useFlatConfig = false
+  },
+  format = true,
+  nodePath = "",
+  onIgnoredFiles = "off",
+  problems = {
+    shortenToSingleLine = false
+  },
+  quiet = false,
+  rulesCustomizations = {},
+  run = "onType",
+  useESLintClass = false,
+  validate = "on",
+  workingDirectory = {
+    mode = "location"
+  }
+}
+}
+
+---- Typescript
+--
+--require('lspconfig').tsserver.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   flags = {
+--     debounce_text_changes = 150,
+--   },
+--   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue", "svelte", "astro" }
+--}
+
+-- Typescript Vue
+
+--require'lspconfig'.vue_language_server.setup {
+--  capabilities = capabilities,
+--  on_attach = on_attach,
+--  flags = {
+--    debounce_text_changes = 150,
+--  },
+--  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
+--}
+
+---- GLSL
+--
+--require('lspconfig').glslls.setup {
+--  capabilities = capabilities,
+--  on_attach = on_attach,
+--  filetypes = {},
+--  cmd = {"glslls", "--stdin"},
+--  flags = {
+--    debounce_text_changes = 150,
+--  }
+--}
 
 -- Terraform
 
@@ -104,6 +188,15 @@ require('lspconfig').tflint.setup {
   }
 }
 
+---- haxe
+--
+--require('lspconfig').haxe_language_server.setup {
+--  capabilities = capabilities,
+--  on_attach = on_attach,
+--  flags = { debounce_text_changes = 150, },
+--  cmd = { "node", "/home/feeva/programs/server.js" },
+--}
+
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "c", "lua", "vim", "help", "query" },
   sync_install = false,
@@ -114,6 +207,16 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
+}
+
+require'nvim-treesitter.parsers'.get_parser_configs().haxe = {
+  install_info = {
+    url = 'https://github.com/vantreeseba/tree-sitter-haxe',
+    files = {'src/parser.c'},
+    -- optional entries:
+    branch = 'main',
+  },
+  filetype = 'haxe',
 }
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
@@ -152,3 +255,92 @@ require('presence'):setup({
 		workspace_text      = 'Working on %s',            -- Workspace format string (either string or function(git_project_name: string|nil, buffer: string): string)
 		line_number_text    = 'Line %s out of %s',        -- Line number format string (for when enable_line_number is set to true)
 })
+
+require('trouble').setup({
+	icons = false,
+	fold_open = "v", -- icon used for open folds
+	fold_closed = ">", -- icon used for closed folds
+	indent_lines = false, -- add an indent guide below the fold icons
+	signs = {
+		-- icons / text used for a diagnostic
+		error = "error",
+		warning = "warn",
+		hint = "hint",
+		information = "info"
+	},
+	use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
+})
+
+vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
+{silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
+{silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
+{silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xl", "<cmd>TroubleToggle loclist<cr>",
+{silent = true, noremap = true}
+)
+vim.keymap.set("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>",
+{silent = true, noremap = true}
+)
+vim.keymap.set("n", "gR", "<cmd>TroubleToggle lsp_references<cr>",
+{silent = true, noremap = true}
+)
+
+require('onedark').setup  {
+    -- Main options --
+    style = 'deep', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+    transparent = false,  -- Show/hide background
+    term_colors = true, -- Change terminal color as per the selected theme style
+    ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
+    cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+
+    -- toggle theme style ---
+    toggle_style_key = nil, -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+    toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
+
+    -- Change code style ---
+    -- Options are italic, bold, underline, none
+    -- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
+    code_style = {
+        comments = 'italic',
+        keywords = 'none',
+        functions = 'none',
+        strings = 'none',
+        variables = 'none'
+    },
+
+    -- Lualine options --
+    lualine = {
+        transparent = false, -- lualine center bar transparency
+    },
+
+    -- Custom Highlights --
+    colors = {}, -- Override default colors
+    highlights = {}, -- Override highlight groups
+
+    -- Plugins Config --
+    diagnostics = {
+        darker = true, -- darker colors for diagnostic
+        undercurl = true,   -- use undercurl instead of underline for diagnostics
+        background = true,    -- use background color for virtual text
+    },
+}
+
+--require('ayu').setup({
+--    mirage = true,
+--    overrides = {
+--        Normal = { bg = "None" },
+--        ColorColumn = { bg = "None" },
+--        SignColumn = { bg = "None" },
+--        Folded = { bg = "None" },
+--        FoldColumn = { bg = "None" },
+--        CursorLine = { bg = "None" },
+--        CursorColumn = { bg = "None" },
+--        WhichKeyFloat = { bg = "None" },
+--        VertSplit = { bg = "None" },
+--    },
+--})
